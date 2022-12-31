@@ -103,7 +103,7 @@ ajaxButtons.addEventListener('click', (e) => {
     if (e.target.classList.contains('ajax')){
         const urlData = e.target.attributes['data-target'].value
         AJAX({
-            url: `https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/${urlData}${e.target.attributes['format'].value}`,
+            url: `${urlData}${e.target.attributes['format'].value}`,
             callBack: (res) => {
                 xhrResponse.innerHTML = '';
                     let ul = document.createElement('ul')
@@ -231,7 +231,7 @@ const btnPromise = document.getElementById('promises')
 btnPromise.addEventListener('click', async(e) => {
     e.preventDefault();
     e.stopPropagation();
-    const results = await fetchData({url: `https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/${page}`})
+    const results = await fetchData({url: `../${page}`})
     if (promise){
         root.innerHTML = '';
         stockTable(results) 
