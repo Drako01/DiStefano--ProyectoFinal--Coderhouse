@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript -- CoderHouse</title>
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <div class="carrito-btn">
+        <button id="boton-carrito"><i class="fas fa-shopping-cart">  &nbsp Cantidad de productos  &nbsp</i><span id="contadorCarrito">  &nbsp 0</span></button>
+    </div>
+    
+    <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+            <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
+            <button id="comprar-carrito" class="boton-agregar comprar">Comprar</button>
+        </div>
+    </div>
+    <!-- <div id="search" class="search">    
+        <button id="searchBtn" class="searchBtn btn btn-success mx-3 my-3" type="button">Buscar</button>
+    </div> -->
+    <main id="contenedor-productos"  class="grid auto">
+        
+    </main>
+
+    <footer id="footer">
+        <p class="copy">3er Entrega | Curso de JavaScript en CoderHouse</p>
+    </footer>
+    
+    <script src="./js/index.js"></script> 
+    <script defer src="./js/stock.js"></script>
+    <script defer src="./js/modal.js"></script>
+    <script defer src="./js/products.js"></script>    
+    <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

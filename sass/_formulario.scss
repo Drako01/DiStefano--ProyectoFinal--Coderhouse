@@ -1,0 +1,185 @@
+.tabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+
+    .imputs-valores {
+        width: 600px;
+        background-color: var(--med);
+        border-radius: 1rem;
+        padding: 5rem;
+        box-shadow: -.1rem .125rem .5rem var(--dark);
+
+        .imputs {
+            display: flex;
+            justify-content: space-between;
+            height: 2rem;
+            margin-top: 1rem;
+            width: 100%;
+            background-color: var(--med);
+
+            label {
+                background-color: var(--med);
+                margin-top: .5rem;
+            }
+
+            input,
+            select,
+            .boton {
+                width: 220px;
+                border: none;
+                border-radius: .25rem;
+            }
+
+            .boton {
+                background-color: var(--second);
+                color: var(--light);
+                width: 100%;
+                font-size: 1.2rem;
+                padding: .5rem;
+                height: 2.5rem;
+                box-shadow: -.125rem .125rem .5rem var(--dark);
+                cursor: pointer;
+            }
+
+            .boton:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.valor-cuota {
+    background-color: var(--med);
+    padding: .25rem 1rem;
+}
+
+.recuadro {
+    font-weight: 600;
+    background-color: var(--dark);
+    color: var(--light);
+    letter-spacing: 1px;
+    padding: 1rem;
+}
+
+#tasaInteres {
+    background-color: var(--med);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    color: var(--second);
+}
+
+#main h1 {
+    padding-top: 2rem;
+}
+
+.tiempo {
+    padding: 2rem 0 6rem 0 ;
+
+    h4 {
+        color: var(--second);
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
+.refresh{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+#refresh{
+    background-color: var(--second);
+    color: var(--light);
+    width: 450px;
+    font-size: 1.2rem;
+    padding: .5rem;
+    height: 2.5rem;
+    box-shadow: -.125rem .125rem .5rem var(--dark);
+    cursor: pointer;
+    border: none;
+    border-radius: .25rem;
+}
+body.dark>main> .tabla .imputs-valores .imputs .boton{
+    background-color: #7f8186;
+}
+body.dark>main> .tiempo #refresh {
+    background-color: #7f8186;
+}
+body.dark>main> .tiempo h4{
+    color: var(--dark);
+}
+body.dark>main> h1,body.dark>main> h2{
+    color: var(--dark);
+    text-shadow: none;
+}
+
+#contenedor-productos {
+    max-width: 1200px;
+    margin: 5rem auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.producto {
+    width: 400px;
+    height: 600px;
+    padding: 1.5rem;
+    margin: .8rem;
+    margin-bottom: 1.2rem;
+    box-shadow: .125rem .125rem .125rem rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    background-color: #dadada;
+    h3{
+        color: var(--dark);
+        text-shadow: none;
+    }
+    .imagen-prod{        
+        height: 320px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 80%;
+            margin-bottom: .8rem;
+        }
+    }
+    
+}
+.precioProducto {
+    font-weight: 600;
+}
+.boton-agregar {
+    background-color: var(--second);
+    color: var(--light);
+    margin: 1rem;
+    padding: .5rem .8rem;
+    border: none;
+    border-radius: .25rem;
+    width: 90%;
+    box-shadow: .125rem .125rem .25rem #a4a5a5;
+}
+.boton-agregar:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+.comprar{
+    background-color: var(--green);
+}
+.comprar:hover{
+    background-color: var(--second);
+}
+
+body.dark > #contenedor-productos{
+    background-color: white !important;
+}
+
+body.dark{
+    .producto{
+        background-color: var(--light);
+    }
+    .boton-agregar {
+        background-color: #989898;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript -- CoderHouse</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+
+    <main id="contacto">
+        <h1 class="contactoText">Contacto</h1> 
+        <!-- Contacto -->
+        <form id="contact">
+            <h2>Dejanos tu consulta</h2>
+            <label for="">Ingrese su nombre</label>
+            <input 
+                class="inputFormContact"
+                id="inputName"
+                type="text"
+                maxlength="50"
+                pattern="[A-Z a-z]{3,}"
+                required>
+            <div class="validation">
+                Ingrese un nombre con al menos 3 caracteres utilizando solamente mayusculas o minusculas.
+            </div>
+            <label for="">Ingrese su telefono</label>
+            <input 
+                class="inputFormContact"
+                id="inputTel"
+                type="tel"
+                maxlength="20"
+                pattern="(\d{6,20})|(\+*)[\(]\d{2,5}[\)](\d{2,6}[\-]){1,4}\d{4}"
+                required>
+            <div class="validation">
+                Coloque la caracteristica entre parentesis, colocando un guion cada 2 a 6 digitos. <br>
+                Ej: +(99)99-9999-9999
+            </div>
+            <label for="">Ingrese su correo</label>
+            <input 
+                class="inputFormContact"
+                id="inputMail"
+                type="email"
+                minlength="8"
+                pattern="\w{2,}@\w{2,}(\.[a-zA-Z]{2,})+"
+                required>
+            <div class="validation">
+                Coloque un correo de al menos 8 caracteres con el siguiente formato "usuario@servidor"
+            </div>
+            <button class="btn">Enviar</button>
+        </form>              
+    </main>
+
+    <footer id="footer">
+        <p class="copy">3er Entrega | Curso de JavaScript en CoderHouse</p>
+    </footer>
+    
+    <script src="./js/index.js"></script>  
+    <script src="./js/regexp.js"></script>   
+</body>
+
+</html>

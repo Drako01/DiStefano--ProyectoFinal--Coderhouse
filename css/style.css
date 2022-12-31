@@ -1,0 +1,971 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Roboto";
+  src: url("../font/Roboto-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* Variables */
+:root {
+  /* Colores */
+  --first: #124;
+  --second: #248;
+  --light: #eee;
+  --green: #005c54;
+  --dark: #333;
+  --grey: #282828;
+  --greyMed: #888;
+  --yellow: #ffff00;
+  --med: #c7c6c6;
+  /* Tamaños */
+  --small: 200px;
+  --medium: 400px;
+  --large: 600px;
+  /* Tipografia */
+  --font: "Roboto";
+}
+
+/* Estructura General del Estilo */
+* {
+  font-family: var(--font);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Reinicios de Estilos */
+/* Margenes */
+body,
+h1,
+h2,
+h3,
+h4,
+header p,
+.submenu,
+.subitems,
+.menu {
+  margin: 0;
+}
+
+/* Rellenos */
+.submenu,
+.subitems,
+.menu {
+  padding: 0;
+}
+
+/* Bordes */
+iframe {
+  border: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: var(--light);
+  text-shadow: 0.1rem 0.1rem 0.1rem var(--dark);
+}
+
+.darkModeSwitch {
+  background: #3494b1;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.darkModeSwitch span {
+  width: 2.4rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  display: block;
+  color: #fff;
+  background: none;
+}
+
+.darkModeSwitch::after {
+  display: block;
+  background: #fffbf5;
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 1.2rem;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.darkModeSwitch.active {
+  background: #fdd384;
+}
+
+.darkModeSwitch.active::after {
+  left: unset;
+  right: 0;
+}
+
+body.dark > header > nav > .menu, body.dark > header > nav > .menu > .btnLog {
+  background-color: #7f8186;
+}
+
+body.dark > main {
+  background-color: #eeeeee !important;
+}
+
+header .menu {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--grey);
+  color: var(--light);
+  padding: 1rem 0;
+  align-items: center;
+  padding-left: 3rem;
+}
+header .menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+header .menu a:hover {
+  color: var(--yellow);
+}
+header .menu h1,
+header .menu p {
+  padding-top: 2rem;
+  text-align: center;
+}
+header .menu .btnLog, header .menu .btnLogout {
+  background-color: var(--grey);
+  padding: 0.3rem 1rem;
+  border: none;
+}
+header .menu .btnLog a, header .menu .btnLogout a {
+  color: var(--light);
+}
+header .menu .btnLog a:hover, header .menu .btnLogout a:hover {
+  color: var(--yellow);
+}
+header .menu .btnLogout {
+  color: var(--grey);
+  font-size: 1.2rem;
+}
+header .menu .btnLogout:hover {
+  color: var(--yellow);
+}
+
+:is(ul) li {
+  min-width: 6rem;
+  padding: 0.25rem 0.5rem;
+  list-style: none;
+}
+
+body.dark > header .menu .btnLogout {
+  background-color: #7f8186;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--grey);
+  color: var(--light);
+  padding: 1rem 0;
+  align-items: center;
+}
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+}
+.tabla .imputs-valores {
+  width: 600px;
+  background-color: var(--med);
+  border-radius: 1rem;
+  padding: 5rem;
+  box-shadow: -0.1rem 0.125rem 0.5rem var(--dark);
+}
+.tabla .imputs-valores .imputs {
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--med);
+}
+.tabla .imputs-valores .imputs label {
+  background-color: var(--med);
+  margin-top: 0.5rem;
+}
+.tabla .imputs-valores .imputs input,
+.tabla .imputs-valores .imputs select,
+.tabla .imputs-valores .imputs .boton {
+  width: 220px;
+  border: none;
+  border-radius: 0.25rem;
+}
+.tabla .imputs-valores .imputs .boton {
+  background-color: var(--second);
+  color: var(--light);
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  height: 2.5rem;
+  box-shadow: -0.125rem 0.125rem 0.5rem var(--dark);
+  cursor: pointer;
+}
+.tabla .imputs-valores .imputs .boton:hover {
+  box-shadow: none;
+}
+
+.valor-cuota {
+  background-color: var(--med);
+  padding: 0.25rem 1rem;
+}
+
+.recuadro {
+  font-weight: 600;
+  background-color: var(--dark);
+  color: var(--light);
+  letter-spacing: 1px;
+  padding: 1rem;
+}
+
+#tasaInteres {
+  background-color: var(--med);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  color: var(--second);
+}
+
+#main h1 {
+  padding-top: 2rem;
+}
+
+.tiempo {
+  padding: 2rem 0 6rem 0;
+}
+.tiempo h4 {
+  color: var(--second);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.refresh {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#refresh {
+  background-color: var(--second);
+  color: var(--light);
+  width: 450px;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  height: 2.5rem;
+  box-shadow: -0.125rem 0.125rem 0.5rem var(--dark);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+body.dark > main > .tabla .imputs-valores .imputs .boton {
+  background-color: #7f8186;
+}
+
+body.dark > main > .tiempo #refresh {
+  background-color: #7f8186;
+}
+
+body.dark > main > .tiempo h4 {
+  color: var(--dark);
+}
+
+body.dark > main > h1, body.dark > main > h2 {
+  color: var(--dark);
+  text-shadow: none;
+}
+
+#contenedor-productos {
+  max-width: 1200px;
+  margin: 5rem auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.producto {
+  width: 400px;
+  height: 600px;
+  padding: 1.5rem;
+  margin: 0.8rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  background-color: #dadada;
+}
+.producto h3 {
+  color: var(--dark);
+  text-shadow: none;
+}
+.producto .imagen-prod {
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.producto .imagen-prod img {
+  width: 80%;
+  margin-bottom: 0.8rem;
+}
+
+.precioProducto {
+  font-weight: 600;
+}
+
+.boton-agregar {
+  background-color: var(--second);
+  color: var(--light);
+  margin: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 0.25rem;
+  width: 90%;
+  box-shadow: 0.125rem 0.125rem 0.25rem #a4a5a5;
+}
+
+.boton-agregar:hover {
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.comprar {
+  background-color: var(--green);
+}
+
+.comprar:hover {
+  background-color: var(--second);
+}
+
+body.dark > #contenedor-productos {
+  background-color: white !important;
+}
+
+body.dark .producto {
+  background-color: var(--light);
+}
+body.dark .boton-agregar {
+  background-color: #989898;
+}
+
+#logout {
+  display: none;
+}
+
+#loginBtn {
+  display: block;
+}
+
+.contenedor-ppal {
+  display: flex;
+  justify-content: center;
+}
+.contenedor-ppal .div-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 0 25% 0;
+  background-color: var(--grey);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 400px;
+}
+.contenedor-ppal .div-login input {
+  margin: 10px 0px;
+  min-width: 280px;
+  max-width: 320px;
+  border: none;
+  border-radius: 0.25rem;
+  height: 2rem;
+}
+.contenedor-ppal .div-login .btn {
+  display: flex;
+  justify-content: center;
+}
+.contenedor-ppal .div-login .btn input {
+  background-color: var(--light);
+  padding: 0.3rem 1rem;
+  border-radius: 0.25rem;
+  color: var(--dark);
+  font-size: 1rem;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.logout {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+.logout .img-login {
+  width: 180px;
+}
+
+#logint,
+#textoLogout {
+  display: none;
+}
+
+#textoLogout {
+  margin: 20% 0 30% 0;
+}
+#textoLogout h2 {
+  color: #202020;
+}
+#textoLogout h2 span {
+  color: #0000ff;
+}
+
+body.dark > main > .contenedor-ppal .div-login {
+  background-color: #9e9e9e;
+}
+body.dark > main > .contenedor-ppal .div-login h2 {
+  color: #282828;
+  text-shadow: none;
+}
+body.dark > main > .contenedor-ppal .div-login form > .btn input {
+  background-color: #282828;
+  color: beige;
+}
+
+#boton-carrito {
+  float: right;
+  margin: 1rem;
+  border: none;
+  color: var(--second);
+  font-size: 1.2rem;
+  background-color: #f1f1f1;
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+
+#boton-carrito:hover {
+  cursor: pointer;
+  color: white;
+  background-color: var(--second);
+}
+
+#boton-carrito:focus {
+  outline: none;
+}
+
+.modal-contenedor {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3019607843);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-carrito {
+  position: relative;
+  background-color: white;
+  min-width: 500px;
+  padding: 1.5rem;
+  margin-top: -100%;
+  transition: all 0.5s;
+  border-radius: 0.5rem;
+}
+.modal-carrito #carrito-contenedor {
+  margin-top: 3rem;
+}
+
+.modal-active .modal-carrito {
+  margin-top: 0;
+}
+
+.modal-carrito h3 {
+  color: var(--second);
+  padding-bottom: 5px;
+}
+
+.modal-carrito #carritoCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: var(--second);
+  border: none;
+  background-color: white;
+}
+
+.modal-carrito #carritoCerrar:hover {
+  cursor: pointer;
+}
+
+.modal-carrito #carritoCerrar:focus {
+  outline: none;
+}
+
+.modal-carrito .precioProducto {
+  padding-top: 10px;
+}
+
+.productoEnCarrito {
+  border-left: 5px solid lightblue;
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.productoEnCarrito:hover {
+  border-left: 5px solid var(--second);
+}
+
+.boton-eliminar {
+  background-color: white;
+  color: red;
+  border: none;
+  font-size: 20px;
+}
+
+.boton-eliminar:hover {
+  cursor: pointer;
+}
+
+.boton-eliminar:focus {
+  outline: none;
+}
+
+body.dark #boton-carrito {
+  color: var(--grey);
+  background-color: var(--light);
+}
+body.dark #boton-carrito:hover {
+  color: var(--light);
+  background-color: var(--grey);
+}
+
+/* Contenido */
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.auto {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--size)), 1fr));
+}
+
+.auto > * {
+  flex: 1 0 min(100%, var(--size));
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.small {
+  --size: 200px;
+}
+
+.medium {
+  --size: 400px;
+}
+
+.large {
+  --size: 600px;
+}
+
+#mapa {
+  display: flex;
+  justify-content: center;
+  padding-top: 6rem;
+  flex-direction: column;
+  align-items: center;
+}
+#mapa .map {
+  width: 600px;
+  height: 480px;
+  border-radius: 1rem;
+}
+#mapa .textoMapa {
+  padding: 5rem 0;
+}
+#mapa .textoMapa img {
+  max-width: 400px;
+}
+
+/* Formulario de Contacto */
+#contact {
+  height: 500px;
+  max-width: 540px;
+  display: grid;
+  margin: 3rem auto 16rem auto;
+  padding: 1.5rem;
+  background: linear-gradient(#eee, #ccc);
+  border-radius: 0.5rem;
+}
+#contact h2 {
+  color: var(--dark);
+  text-shadow: none;
+}
+#contact label {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+}
+#contact input,
+#contact textarea,
+#contact select,
+#contact button {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  height: 2rem;
+  border-radius: 0.25rem;
+}
+#contact .btn {
+  margin-top: 1.8rem;
+  background-color: var(--second);
+  color: var(--light);
+}
+#contact .validation {
+  max-height: 3rem;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+#contact .incorrecto {
+  max-height: 3rem;
+}
+
+.contactoText {
+  color: var(--greyMed);
+  text-shadow: none;
+  padding-top: 3rem;
+}
+
+body.dark > main {
+  background-color: white !important;
+}
+body.dark > main #contact {
+  background: linear-gradient(#ccc, #eee);
+}
+body.dark > main #contact h2 {
+  color: var(--dark);
+  text-shadow: none;
+}
+body.dark > main #contact .btn {
+  margin-top: 1.8rem;
+  background-color: var(--dark);
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 0.5rem;
+  background-color: #ccc;
+  padding: 1rem;
+}
+
+/* Galerias */
+.carrousel {
+  position: relative;
+  margin-bottom: 2rem;
+  min-height: 100vh;
+}
+.carrousel h2 {
+  padding-top: 2rem;
+}
+
+.carrousel button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 15%;
+  color: #ddd;
+  background-color: transparent;
+  font-size: 3rem;
+  opacity: 0.3;
+  border: none;
+}
+
+.carrousel button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.carrousel .next {
+  right: 0;
+}
+
+.carrousel .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+}
+
+.carrousel .item.active {
+  opacity: 1;
+}
+
+.carrousel .item {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  color: #eee;
+  font-size: 3rem;
+  text-shadow: 0 0 0.5rem #333;
+}
+
+/* Imagenes */
+#index {
+  background-image: url("../img/fondo.webp");
+  height: 100vh;
+}
+
+.tienda .item:nth-child(1n) {
+  background-image: url("../img/item01.png");
+}
+
+.tienda .item:nth-child(2n) {
+  background-image: url("../img/item02.png");
+}
+
+.tienda .item:nth-child(3n) {
+  background-image: url("../img/item03.png");
+}
+
+.tienda .item:nth-child(4n) {
+  background-image: url("../img/item04.png");
+}
+
+.tienda .item:nth-child(5n) {
+  background-image: url("../img/item05.png");
+}
+
+.tienda .item:nth-child(6n) {
+  background-image: url("../img/item06.png");
+}
+
+.tienda .item:nth-child(7n) {
+  background-image: url("../img/item07.png");
+}
+
+.tienda .item:nth-child(8n) {
+  background-image: url("../img/item08.png");
+}
+
+.tienda .item:nth-child(1n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Zapatilla Lona";
+}
+
+.tienda .item:nth-child(2n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Zapatilla Lona Gris";
+}
+
+.tienda .item:nth-child(3n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Zapatilla Combinada";
+}
+
+.tienda .item:nth-child(4n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Zapatilla Tenis";
+}
+
+.tienda .item:nth-child(5n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Remera Lisa Blanca";
+}
+
+.tienda .item:nth-child(6n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Remera Lisa Negra";
+}
+
+.tienda .item:nth-child(7n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Remera Lisa Gris";
+}
+
+.tienda .item:nth-child(8n)::after {
+  color: var(--yellow);
+  font-size: 4rem;
+  text-shadow: -0.5rem 0.251rem 0.8rem var(--dark);
+  content: "Remera Messi";
+}
+
+.tiendaBtn {
+  padding: 0 20% 8rem 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tiendaBtn .test {
+  padding: 0.5rem 2rem;
+  margin: 0.8rem;
+  background-color: var(--dark);
+  color: var(--yellow);
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.tiendaBtn .test:hover {
+  background-color: var(--light);
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
+.w-100 {
+  display: flex;
+  justify-content: center;
+}
+.w-100 ul > li {
+  padding: 2rem;
+  background-color: var(--light);
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.w-100 ul > li h3 {
+  color: var(--second);
+  text-shadow: none;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.w-100 ul > li h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.w-100 ul > li h4 span {
+  color: var(--second);
+  font-weight: 600;
+}
+.w-100 ul > li .imagen-min {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.w-100 ul > li .imagen-min img {
+  max-width: 280px;
+}
+
+.carga-test {
+  padding: 2rem;
+  text-align: center;
+  color: var(--second);
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+/* Selected */
+#selected {
+  display: inline-block;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.selected {
+  background-color: #da3;
+}
+
+.special {
+  background-color: #3c6;
+}
+
+.left-negative {
+  left: -30%;
+}
+
+.left-none {
+  left: 0;
+}
+
+body.dark > #index {
+  background-image: url("../img/fondo1.webp");
+  height: 100vh;
+}
+body.dark > #index .carrousel button {
+  color: #000000;
+}
+body.dark > #index .carrousel h2 {
+  color: #333;
+  text-shadow: none;
+}
+body.dark > #index #root > table {
+  --bs-table-color: #1c1c1c;
+  --bs-table-bg: #fff;
+  --bs-table-border-color: #373b3e;
+  --bs-table-striped-bg: #c2c2c2;
+  --bs-table-striped-color: #2e2e2e;
+  --bs-table-active-bg: #404040;
+  --bs-table-active-color: #212121;
+  --bs-table-hover-bg: #323539;
+  --bs-table-hover-color: #c2c2c2;
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
+}
+body.dark > #index #root > table .btn-outline-light {
+  --bs-btn-color: #21272c;
+  --bs-btn-border-color: #565656;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #808589;
+}
+
+/* Autor: Alejandro Di Stefano *//*# sourceMappingURL=style.css.map */

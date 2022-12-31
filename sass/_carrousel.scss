@@ -1,0 +1,261 @@
+/* Tarjetas */
+.card{
+    border-radius: .5rem;
+    background-color: #ccc;
+    padding: 1rem;
+}
+/* Galerias */
+.carrousel{
+    position: relative;
+    margin-bottom: 2rem;
+    min-height: min(100vh);
+    h2{
+        padding-top: 2rem;
+    }
+}
+.carrousel button{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    padding: 15%;
+    color: #ddd;
+    background-color: transparent;
+    font-size: 3rem;
+    opacity: .3;
+    border: none;
+}
+.carrousel button:hover{
+    opacity: .7;
+    cursor: pointer;
+}
+.carrousel .next{
+    right: 0;
+}
+.carrousel .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+}
+.carrousel .item.active{
+    opacity: 1;   
+}
+.carrousel .item{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: #eee;
+    font-size: 3rem;
+    text-shadow: 0 0 .5rem #333;
+}
+
+/* Imagenes */
+
+#index{
+    background-image: url('../img/fondo.webp');
+    height: 100vh;
+}
+
+
+
+.tienda .item:nth-child(1n){
+    background-image: url('../img/item01.png');    
+}
+
+.tienda .item:nth-child(2n){
+    background-image: url('../img/item02.png');
+    
+}
+.tienda .item:nth-child(3n){
+    background-image: url('../img/item03.png');
+    
+}
+.tienda .item:nth-child(4n){
+    background-image: url('../img/item04.png');
+    
+}
+.tienda .item:nth-child(5n){
+    background-image: url('../img/item05.png');
+    
+}
+.tienda .item:nth-child(6n){
+    background-image: url('../img/item06.png');
+    
+}
+.tienda .item:nth-child(7n){
+    background-image: url('../img/item07.png');
+    
+}
+.tienda .item:nth-child(8n){
+    background-image: url('../img/item08.png');
+    
+}
+.tienda .item:nth-child(1n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Zapatilla Lona";
+}
+.tienda .item:nth-child(2n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Zapatilla Lona Gris";
+}
+.tienda .item:nth-child(3n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Zapatilla Combinada";
+}
+.tienda .item:nth-child(4n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Zapatilla Tenis";
+}
+.tienda .item:nth-child(5n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Remera Lisa Blanca";
+}
+.tienda .item:nth-child(6n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Remera Lisa Negra";
+}
+.tienda .item:nth-child(7n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Remera Lisa Gris";
+}
+.tienda .item:nth-child(8n)::after{
+    color: var(--yellow);
+    font-size: 4rem;
+    text-shadow: -.5rem .251rem .8rem var(--dark);
+    content: "Remera Messi";
+}
+
+.tiendaBtn{
+    padding: 0 20% 8rem 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .test{
+        padding: .5rem 2rem;
+        margin: .8rem;
+        background-color: var(--dark);
+        color: var(--yellow);
+        font-size: 1rem;
+        border: none;
+        border-radius: .25rem;
+        cursor: pointer;
+        
+    }
+    .test:hover{
+        background-color: var(--light);
+        color: var(--dark);
+        border: 1px solid var(--dark);
+    }
+}
+
+.w-100{
+    display: flex;
+    justify-content: center;
+    ul>li{
+        padding: 2rem;
+        background-color: var(--light);
+        margin: .5rem;
+        border-radius: .5rem;
+        h3{
+            color: var(--second);
+            text-shadow: none;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        h4{
+            font-size: 1.3rem;
+            margin-bottom: .5rem;
+            span{
+                color: var(--second);
+                font-weight: 600;
+            }
+        }
+        .imagen-min{            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            img{
+                max-width: 280px;
+            }
+        }
+    }
+    
+}
+.carga-test{
+    padding: 2rem;
+    text-align: center;
+    color: var(--second);
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+/* Selected */
+#selected{
+    display: inline-block;
+    border-radius: .25rem;
+    padding: .5rem 1rem;
+}
+.selected{
+    background-color: #da3;
+}
+.special{
+    background-color: #3c6;
+}
+
+.left-negative{
+    left: -30%;
+}
+.left-none{
+    left: 0;
+}
+
+body.dark>#index{
+    background-image: url('../img/fondo1.webp');
+    height: 100vh;
+    .carrousel{
+        button{
+            color: #000000;
+        }
+        h2{
+            color: #333;
+            text-shadow: none;
+        }
+    }
+    #root>table{
+        --bs-table-color: #1c1c1c;
+        --bs-table-bg: #fff;
+        --bs-table-border-color: #373b3e;
+        --bs-table-striped-bg: #c2c2c2;
+        --bs-table-striped-color: #2e2e2e;
+        --bs-table-active-bg: #404040;
+        --bs-table-active-color: #212121;
+        --bs-table-hover-bg: #323539;
+        --bs-table-hover-color: #c2c2c2;
+        color: var(--bs-table-color);
+        border-color: var(--bs-table-border-color);
+        .btn-outline-light {
+            --bs-btn-color: #21272c;
+            --bs-btn-border-color: #565656;
+            --bs-btn-hover-color: #000;
+            --bs-btn-hover-bg: #808589;
+        }
+    }
+}

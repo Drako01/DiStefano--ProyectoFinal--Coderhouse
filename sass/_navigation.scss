@@ -1,0 +1,57 @@
+header {
+    .menu {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: var(--grey);
+        color: var(--light);
+        padding: 1rem 0;
+        align-items: center;
+        padding-left: 3rem;
+
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        a:hover {
+            color: var(--yellow);
+        }
+
+        
+        h1,
+        p {
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .btnLog, .btnLogout{
+            background-color: var(--grey);
+            padding: .3rem 1rem;           
+            border: none;
+            a{
+                color: var(--light);
+            }
+            a:hover {
+                color: var(--yellow);
+            }
+        }
+        .btnLogout{
+            color: var(--grey);
+            font-size: 1.2rem;
+        }
+        .btnLogout:hover {
+            color: var(--yellow);
+        }
+    }
+}
+
+:is(ul) li {
+    min-width: 6rem;
+    padding: .25rem .5rem;
+    list-style: none;
+}
+
+
+body.dark>header .menu .btnLogout{
+    background-color: #7f8186;
+}

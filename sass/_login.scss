@@ -1,0 +1,90 @@
+#logout {
+    display: none;
+}
+#loginBtn{
+    display: block;
+}
+
+.contenedor-ppal {
+    display: flex;
+    justify-content: center;
+
+    .div-login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 0 25% 0;
+        background-color: var(--grey);
+        padding: 2rem;
+        border-radius: 1rem;
+        width: 400px;
+        
+
+        input {
+            margin: 10px 0px;
+            min-width: 280px;
+            max-width: 320px;
+            border: none;
+            border-radius: 0.25rem;
+            height: 2rem;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+
+            input {
+                background-color: var(--light);
+                padding: .3rem 1rem;                
+                border-radius: .25rem;
+                color: var(--dark);
+                font-size: 1rem;
+            }
+        }
+
+    }
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.logout{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    .img-login{
+        width: 180px;
+    }
+}
+
+
+#logint,
+#textoLogout {
+    display: none;   
+}
+
+#textoLogout {
+    margin: 20% 0 30% 0;
+
+    h2 {
+        color: #202020;
+        span{
+            color: #0000ff;
+        }
+    }
+}
+
+body.dark>main> .contenedor-ppal .div-login{
+    h2{
+        color: #282828;
+        text-shadow: none;
+    }
+    background-color:  #9e9e9e;
+    form>.btn input{
+        background-color:  #282828;
+        color: beige;
+    }
+}
