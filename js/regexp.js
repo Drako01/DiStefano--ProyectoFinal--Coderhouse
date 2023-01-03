@@ -50,7 +50,7 @@ function guardarDatos(){
 
         localStorage.setItem('Nuevo Contacto', JSON.stringify(datos))
     
-        swal(datos['nombre'].toUpperCase() ,'Contacto Agregado Correctamente', 'success')
+        swal(datos['nombre'].toUpperCase() ,'Contacto Agregado Correctamente al LocalStorage', 'success')
     }
     /*
         Con la funcion guardarDatos() simplemente hago un LocalStorage del Contacto que
