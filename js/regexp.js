@@ -48,7 +48,7 @@ function guardarDatos(){
         email = d.forms["formulario"]["email"].value,
         datos = {'nombre': nombre, 'telefono': telefono, 'email': email };
 
-        localStorage.setItem('datos', JSON.stringify(datos))
+        localStorage.setItem('Nuevo Contacto', JSON.stringify(datos))
     
         swal(datos['nombre'].toUpperCase() ,'Contacto Agregado Correctamente', 'success')
     }
