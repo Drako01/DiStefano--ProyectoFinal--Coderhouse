@@ -133,7 +133,7 @@ ajaxButtons.addEventListener('click', (e) => {
                         
                     })                    
                     xhrResponse.appendChild(ul);
-                
+                    callAcctionsVentas()
             }
         })
     }
@@ -238,7 +238,6 @@ btnPromise.addEventListener('click', async(e) => {
         stockTable(results) 
         btnReload()  
         let res = results.filter(e => e.id == 1)   
-        console.log(res) 
     }
 })
 
@@ -254,12 +253,18 @@ callModal(FilteredResult)
 
 function callAcctions(){
     const botones = d.querySelectorAll('.btn-comprar')
-    console.log(botones)
     botones.forEach(b =>{
         b.addEventListener('click', e =>{
             const productId = e.target.parentNode.parentNode.id
-            console.log(productId)
         })
     })
 }
 
+function callAcctionsVentas(){
+    const botones = d.querySelectorAll('.btn-comprar')
+    botones.forEach(b =>{
+        b.addEventListener('click', e =>{
+            const productId = e.target.parentNode.id
+        })
+    })
+}
