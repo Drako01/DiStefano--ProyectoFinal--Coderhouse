@@ -26,6 +26,7 @@
                 type="text"
                 maxlength="50"
                 pattern="[A-Z a-z]{3,}"
+                onfocus="this.value=''"
                 required>
             <div class="validation">
                 Ingrese un nombre con al menos 3 caracteres utilizando solamente mayusculas o minusculas.
@@ -38,6 +39,7 @@
                 type="tel"
                 maxlength="20"
                 pattern="(\d{6,20})|(\+*)[\(]\d{2,5}[\)](\d{2,6}[\-]){1,4}\d{4}"
+                onfocus="this.value=''"
                 required>
             <div class="validation">
                 Coloque la caracteristica entre parentesis, colocando un guion cada 2 a 6 digitos. <br>
@@ -51,6 +53,7 @@
                 type="email"
                 minlength="8"
                 pattern="\w{2,}@\w{2,}(\.[a-zA-Z]{2,})+"
+                onfocus="this.value=''"
                 required>
             <div class="validation">
                 Coloque un correo de al menos 8 caracteres con el siguiente formato "usuario@servidor"

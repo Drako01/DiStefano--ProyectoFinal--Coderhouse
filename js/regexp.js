@@ -8,8 +8,8 @@ formControls.forEach( input => {
         const 
             validar  = validation(e.target.value, e.target.type),
             inputName = d.querySelector('#inputName'),
-            inputTel = d.querySelector('#inputTel');
-            inputMail = d.querySelector('#inputMail')
+            inputTel = d.querySelector('#inputTel'),
+            inputMail = d.querySelector('#inputMail');
             
         if (!validar){
             inputName.style.border = "1px solid red"
