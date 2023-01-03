@@ -50,6 +50,9 @@ function guardarDatos(){
 
         localStorage.setItem('datos', JSON.stringify(datos))
     
-        swal(datos['nombre'] ,'Contacto Agregado Correctamente')
+        swal(datos['nombre'].toUpperCase() ,'Contacto Agregado Correctamente', 'success')
     }
-    
+    /*
+        Con la funcion guardarDatos() simplemente hago un LocalStorage del Contacto que
+        se acaba de agregar y manda un SweetAlert del Contacto agregado en caso exitoso.
+    */
