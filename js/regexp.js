@@ -1,6 +1,7 @@
 const 
         formControls = d.querySelectorAll('#contact input'),
-        valid = d.querySelectorAll('.validation');
+        valid = d.querySelectorAll('.validation'),
+        btnSubmit = d.querySelectorAll('#contact .btn-submit');
         
 formControls.forEach( input => {
     input.addEventListener('input', (e) => {        
@@ -38,3 +39,17 @@ function validation(args, type){
     }
     return regexp.test(args)
 };
+
+
+function guardarDatos(){
+    const 
+        nombre = d.forms["formulario"]["nombre"].value
+        telefono = d.forms["formulario"]["telefono"].value,
+        email = d.forms["formulario"]["email"].value,
+        datos = {'nombre': nombre, 'telefono': telefono, 'email': email };
+
+        localStorage.setItem('datos', JSON.stringify(datos))
+    
+        swal(datos['nombre'] ,'Contacto Agregado Correctamente')
+    }
+    

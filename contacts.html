@@ -16,12 +16,13 @@
     <main id="contacto">
         <h1 class="contactoText">Contacto</h1> 
         <!-- Contacto -->
-        <form id="contact">
+        <form id="contact" action="javascript: guardarDatos()" method="post" name="formulario">
             <h2>Dejanos tu consulta</h2>
             <label for="">Ingrese su nombre</label>
             <input 
                 class="inputFormContact"
                 id="inputName"
+                name="nombre"
                 type="text"
                 maxlength="50"
                 pattern="[A-Z a-z]{3,}"
@@ -33,6 +34,7 @@
             <input 
                 class="inputFormContact"
                 id="inputTel"
+                name="telefono"
                 type="tel"
                 maxlength="20"
                 pattern="(\d{6,20})|(\+*)[\(]\d{2,5}[\)](\d{2,6}[\-]){1,4}\d{4}"
@@ -45,6 +47,7 @@
             <input 
                 class="inputFormContact"
                 id="inputMail"
+                name="email"
                 type="email"
                 minlength="8"
                 pattern="\w{2,}@\w{2,}(\.[a-zA-Z]{2,})+"
@@ -52,14 +55,14 @@
             <div class="validation">
                 Coloque un correo de al menos 8 caracteres con el siguiente formato "usuario@servidor"
             </div>
-            <button class="btn">Enviar</button>
+            <button class="btn btn-submit" type="submit">Enviar</button>
         </form>              
     </main>
 
     <footer id="footer">
         <p class="copy">3er Entrega | Curso de JavaScript en CoderHouse</p>
     </footer>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./js/index.js"></script>  
     <script src="./js/regexp.js"></script>   
 </body>
