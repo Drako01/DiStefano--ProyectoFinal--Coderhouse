@@ -10,20 +10,20 @@ const
     tiendaDiv.className = ('tiendaBtn')
     tiendaDiv.id = 'xhr'
     tiendaDiv.innerHTML = `<button class="ajax boton-agregar" 
-                            data-target="stock"
-                            format=".json"
-                            style="height: 3rem; 
-                            font-size: 1.1rem;
-                            line-height: 1.2rem;">
-                            Detalle de los Artículos
+                                data-target="stock"
+                                format=".json"
+                                style="height: 3rem; 
+                                font-size: 1.1rem;
+                                line-height: 1.2rem;">
+                                Detalle de los Artículos
                             </button>
                             <button class="promise boton-agregar"                             
-                            fetch-type="promises"
-                            id="promises" 
-                            style="height: 3rem; 
-                            font-size: 1.1rem;
-                            line-height: 1.2rem;">
-                            Listado de los Artículos
+                                fetch-type="promises"
+                                id="promises" 
+                                style="height: 3rem; 
+                                font-size: 1.1rem;
+                                line-height: 1.2rem;">
+                                Listado de los Artículos
                             </button>`
     tienda.appendChild(tiendaDiv)
 
@@ -85,8 +85,8 @@ function AJAX(req){
     xhr.addEventListener('progress', (e) => {
         if(e.lengthComputable){
             tiendaDiv.innerHTML = `<div class="carga-test">                                    
-                                    <h4>Se cargaron ${e.loaded} 
-                                    de ${e.total} bytes</h4>                                    
+                                        <h4>Se cargaron ${e.loaded} 
+                                        de ${e.total} bytes</h4>                                    
                                     </div>
                                     `
                                     btnReload()
@@ -108,29 +108,28 @@ ajaxButtons.addEventListener('click', (e) => {
                 xhrResponse.innerHTML = '';
                     let ul = document.createElement('ul')
                     res.map(r => {
-                        ul.innerHTML += `<li id="item_${r.item_}">
-                        <h3>
-                        Item Nro: ${r.item_} - 
-                        ${r.nombre} 
-                        </h3>
-                        <h4>
-                        Sólo queda en Talle <span>${r.talle} </span>
-                        </h4>
-                        <h4>
-                        Valor: $<span>${r.precio}</span>
-                        </h4> 
-                        <div class="imagen-min">                       
-                        <img src="${r.img}" alt="${r.nombre}">  
-                        </div>  
-                        <h4>
-                        Cantidad en Stock: <span>${r.cantidad}</span>
-                        </h4> 
-                        <h4> 
-                        Descripción: <span>${r.desc}</span>
-                        </h4> 
+                        ul.innerHTML += 
+                        `<li id="item_${r.item_}">
+                            <h3>
+                                Item Nro: ${r.item_} - ${r.nombre} 
+                            </h3>
+                            <h4>
+                                Sólo queda en Talle <span>${r.talle} </span>
+                            </h4>
+                            <h4>
+                                Valor: $<span>${r.precio}</span>
+                            </h4> 
+                            <div class="imagen-min">                       
+                                <img src="${r.img}" alt="${r.nombre}">  
+                            </div>  
+                            <h4>
+                                Cantidad en Stock: <span>${r.cantidad}</span>
+                            </h4> 
+                            <h4> 
+                                Descripción: <span>${r.desc}</span>
+                            </h4> 
                             <button class="btn-comprar boton-agregar">Comprar</button> 
-                        </li>`
-                        
+                        </li>`                        
                     })                    
                     xhrResponse.appendChild(ul);
                     callAcctionsVentas()
@@ -190,10 +189,8 @@ function stockTableRows(stock){
             <td>${stock.cantidad || '0'}</td>
             <td>${stock.desc || 'Descripción'}</td>
             <td>${stock.talle || 'N/Ex'}</td>
-            <td>
-                
-                    <button class="btn-comprar btn btn-outline-light">Comprar</button>
-                
+            <td>                
+                <button class="btn-comprar btn btn-outline-light">Comprar</button>                
             </td>
         </tr>`
 }
@@ -206,7 +203,7 @@ function stockTable(stocks){
         innerHTML: `
             ${ stockTableHeadings() } 
             <tbody>
-            ${ stocks.map(stock => stockTableRows(stock)) }
+                ${ stocks.map(stock => stockTableRows(stock)) }
             </tbody>
             `
     })
@@ -243,8 +240,6 @@ btnPromise.addEventListener('click', async(e) => {
 
 /*
 response.filter( element => id == id)
-button.parentNode.parentNode.id
-id.split("_")[1]
 resultado = fetch('datos')
 resultado.filter(e => e.id == prodID)
 callModal(FilteredResult)
@@ -255,7 +250,7 @@ function callAcctions(){
     const botones = d.querySelectorAll('.btn-comprar')
     botones.forEach(b =>{
         b.addEventListener('click', e =>{
-            const productId = e.target.parentNode.parentNode.id
+            const productId = e.target.parentNode.parentNode.id.split("_")[1]
         })
     })
 }
@@ -264,7 +259,7 @@ function callAcctionsVentas(){
     const botones = d.querySelectorAll('.btn-comprar')
     botones.forEach(b =>{
         b.addEventListener('click', e =>{
-            const productId = e.target.parentNode.id
+            const productIdVentas = e.target.parentNode.id.split("_")[1]
         })
     })
 }
