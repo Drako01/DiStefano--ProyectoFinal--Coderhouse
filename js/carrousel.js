@@ -127,10 +127,8 @@ ajaxButtons.addEventListener('click', (e) => {
                         </h4> 
                         <h4> 
                         Descripción: <span>${r.desc}</span>
-                        </h4>  
-                        <a href="./products.html">
-                            <button class="boton-agregar">Comprar</button> 
-                        </a>                                  
+                        </h4> 
+                            <button class="btn-comprar boton-agregar">Comprar</button> 
                         </li>`
                         
                     })                    
@@ -159,6 +157,7 @@ const
     async function fetchData(request){
         try {
             let data = await fetch(request.url);
+            if(data.status >= 400) throw new Error(data.status)
             return await data.json();
         }
         catch (e){
@@ -182,18 +181,19 @@ function stockTableHeadings(){
 }
 
 // Celdas por Fila
+// Uso || para evitar que detenga el código en caso que no exista el Ítem.
 function stockTableRows(stock){
     return `
-        <tr>
-            <td>${stock.nombre}</td>
-            <td>${stock.tipo}</td>
-            <td>${stock.cantidad}</td>
-            <td>${stock.desc}</td>
-            <td>${stock.talle}</td>
+        <tr id="item_${stock.id}">
+            <td>${stock.nombre || 'Nombre'}</td> 
+            <td>${stock.tipo.toUpperCase() || 'indefinido'}</td>
+            <td>${stock.cantidad || '0'}</td>
+            <td>${stock.desc || 'Descripción'}</td>
+            <td>${stock.talle || 'N/Ex'}</td>
             <td>
-                <a href="./products.html">
-                    <button class="btn btn-outline-light">Comprar</button>
-                </a>
+                
+                    <button class="btn-comprar btn btn-outline-light">Comprar</button>
+                
             </td>
         </tr>`
 }
@@ -211,6 +211,7 @@ function stockTable(stocks){
             `
     })
     root.appendChild(table);
+    callAcctions()
 }
 
 // Resultado No encontrado
@@ -220,8 +221,8 @@ function renderError(error){
         className: 'card',
         id: 'error_message',
         innerHTML: `
-            <h2 class="card-header">Lo sentimos, hubo un problema</h2>
-            <p class="card-body">Error: ${error}</p>`
+            <h2 class="card-header">${error}</h2>
+            <p class="card-body">Lo sentimos, hubo un problema</p>`
     })
     root.appendChild(errorMessage);
 }
@@ -231,10 +232,34 @@ const btnPromise = document.getElementById('promises')
 btnPromise.addEventListener('click', async(e) => {
     e.preventDefault();
     e.stopPropagation();
-    const results = await fetchData({url: `../${page}`})
+    const results = await fetchData({url: `./${page}`})
     if (promise){
         root.innerHTML = '';
         stockTable(results) 
-        btnReload()       
+        btnReload()  
+        let res = results.filter(e => e.id == 1)   
+        console.log(res) 
     }
 })
+
+/*
+response.filter( element => id == id)
+button.parentNode.parentNode.id
+id.split("_")[1]
+resultado = fetch('datos')
+resultado.filter(e => e.id == prodID)
+callModal(FilteredResult)
+
+*/
+
+function callAcctions(){
+    const botones = d.querySelectorAll('.btn-comprar')
+    console.log(botones)
+    botones.forEach(b =>{
+        b.addEventListener('click', e =>{
+            const productId = e.target.parentNode.parentNode.id
+            console.log(productId)
+        })
+    })
+}
+

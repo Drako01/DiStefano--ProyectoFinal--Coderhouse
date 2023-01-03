@@ -88,17 +88,3 @@ const actualizarCarrito = () => {
     contadorCarrito.innerText = carrito.length 
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
 }
-
-
-// const
-//     searchDiv = document.querySelector('#search'),
-//     searchBtn = document.querySelector('#searchBtn'),    
-
-//     searchSelect = document.createElement('select')
-//     searchSelect.className = ('form-select form-select-lg mb-3')
-    
-//     stockProductos.forEach((producto) => { 
-//     searchSelect.innerHTML += `
-//                     <option name="${producto.nombre}" id="item_${producto.id}">${producto.nombre}</option>`
-//                     searchDiv.appendChild(searchSelect)                    
-//                     })
