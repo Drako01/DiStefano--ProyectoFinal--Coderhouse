@@ -8,8 +8,9 @@
     <title>JavaScript -- CoderHouse</title>
     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -17,9 +18,10 @@
     <header id="header">
     </header>
     <div class="carrito-btn">
-        <button id="boton-carrito"><i class="fas fa-shopping-cart">  &nbsp Cantidad de productos  &nbsp</i><span id="contadorCarrito">  &nbsp 0</span></button>
+        <button id="boton-carrito"><i class="fas fa-shopping-cart"> &nbsp Cantidad de productos &nbsp</i><span
+                id="contadorCarrito"> &nbsp 0</span></button>
     </div>
-    
+
     <div class="modal-contenedor">
         <div class="modal-carrito">
             <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
@@ -30,19 +32,49 @@
             <button id="comprar-carrito" class="boton-agregar comprar">Comprar</button>
         </div>
     </div>
-    <main id="contenedor-productos"  class="flex auto">
-        
-    </main>
+    
+    <main id="contenedor-productos" class="flex auto">
 
+    </main>  
+    <!--Implementación de la Librería Swiper  -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./img/item01.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item02.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item03.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item04.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item05.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item06.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item07.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/item08.png" alt="">
+            </div>            
+        </div>        
+    </div>
     <footer id="footer">
         <p class="copy">3er Entrega | Curso de JavaScript en CoderHouse</p>
     </footer>
     
     <script src="./js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js/index.js"></script>
     <script defer src="./js/stock.js"></script>
     <script defer src="./js/modal.js"></script>
-    <script defer src="./js/products.js"></script> 
+    <script defer src="./js/products.js"></script>
 </body>
 
 </html>

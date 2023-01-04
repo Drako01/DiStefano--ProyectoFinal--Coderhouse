@@ -259,3 +259,32 @@ body.dark>#index{
         }
     }
 }
+
+.swiper {
+    width: 80%;
+    z-index: 0 !important;
+}
+
+
+.swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding-bottom: 5rem;
+    img {
+        display: block;
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+        margin-bottom: 3rem;
+    }    
+}

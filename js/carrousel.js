@@ -1,4 +1,4 @@
-const     
+const
     className = 'active',
     slides = document.getElementsByClassName('carrousel'),
     itemLi = document.querySelectorAll('.tienda'),
@@ -7,9 +7,9 @@ const
     tienda = document.getElementById('index'),
     tiendaDiv = document.createElement('div');
 
-    tiendaDiv.className = ('tiendaBtn')
-    tiendaDiv.id = 'xhr'
-    tiendaDiv.innerHTML = `<button class="ajax boton-agregar" 
+tiendaDiv.className = ('tiendaBtn')
+tiendaDiv.id = 'xhr'
+tiendaDiv.innerHTML = `<button class="ajax boton-agregar" 
                                 data-target="stock"
                                 format=".json"
                                 style="height: 3rem; 
@@ -25,21 +25,23 @@ const
                                 line-height: 1.2rem;">
                                 Listado de los Artículos
                             </button>`
-    tienda.appendChild(tiendaDiv)
+tienda.appendChild(tiendaDiv)
 
 /* GALERIA CARROUSEL */
 const searchElementInArray = function (array) {
-    for(item of array){
-        if(item.classList.contains('active')){
+    for (item of array) {
+        if (item.classList.contains('active')) {
             item.classList.remove('active')
             return item;
-} } }
+        }
+    }
+}
 
 const setActiveElement = (array, buttonType) => {
     let lastActiveItem = searchElementInArray(array);
-    if(buttonType == 'prev'){
+    if (buttonType == 'prev') {
         lastActiveItem = lastActiveItem.previousElementSibling || lastActiveItem.parentNode.lastElementChild;
-    } else if (buttonType == 'next'){
+    } else if (buttonType == 'next') {
         lastActiveItem = lastActiveItem.nextElementSibling || lastActiveItem.parentNode.firstElementChild;
     } else {
         lastActiveItem = array[buttonType];
@@ -47,68 +49,72 @@ const setActiveElement = (array, buttonType) => {
     lastActiveItem.classList.add('active');
 }
 
-prev.forEach( (btn, i) => { btn.addEventListener('click', () => {
-    let imageList = slides[i].querySelectorAll('.slide .item');
-    setActiveElement(imageList,'prev');
-} ) } )
-next.forEach( (btn, i) => { btn.addEventListener('click', () => {
-    let imageList = slides[i].querySelectorAll('.slide .item');
-    setActiveElement(imageList,'next');
-} ) } )
+prev.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+        let imageList = slides[i].querySelectorAll('.slide .item');
+        setActiveElement(imageList, 'prev');
+    })
+})
+next.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+        let imageList = slides[i].querySelectorAll('.slide .item');
+        setActiveElement(imageList, 'next');
+    })
+})
 
 function btnReload() {
     const btnTest = document.createElement('button')
-                    btnTest.innerHTML = `Cerrar`
-                    btnTest.className = 'test btnTest'
-                    btnTest.id = 'test-butn'
-            tiendaDiv.appendChild(btnTest)
-            btnTest.addEventListener(
-                'click', () => {
-                    location.reload();
-                }
-            )
+    btnTest.innerHTML = `Cerrar`
+    btnTest.className = 'test btnTest'
+    btnTest.id = 'test-butn'
+    tiendaDiv.appendChild(btnTest)
+    btnTest.addEventListener(
+        'click', () => {
+            location.reload();
+        }
+    )
 }
 
 // AJAX (Asynchronous Javascript AND XML)
-function AJAX(req){
+function AJAX(req) {
     const xhr = new XMLHttpRequest;
     xhr.open(req.method || 'get', req.url);
     xhr.send();
     xhr.addEventListener('readystatechange', () => {
-        if(xhr.readyState == 4 && xhr.status == 200){
-            const response = (   
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            const response = (
                 JSON.parse(xhr.response)
             )
             req.callBack(response)
-        }        
+        }
     })
     xhr.addEventListener('progress', (e) => {
-        if(e.lengthComputable){
+        if (e.lengthComputable) {
             tiendaDiv.innerHTML = `<div class="carga-test">                                    
                                         <h4>Se cargaron ${e.loaded} 
                                         de ${e.total} bytes</h4>                                    
                                     </div>
                                     `
-                                    btnReload()
+            btnReload()
         }
     })
 }
 
 // Botones de Accion
-const 
-        ajaxButtons = document.querySelector('#xhr'),
-        xhrResponse = document.getElementById('xhrResponse');
+const
+    ajaxButtons = document.querySelector('#xhr'),
+    xhrResponse = document.getElementById('xhrResponse');
 
 ajaxButtons.addEventListener('click', (e) => {
-    if (e.target.classList.contains('ajax')){
+    if (e.target.classList.contains('ajax')) {
         const urlData = e.target.attributes['data-target'].value
         AJAX({
             url: `${urlData}${e.target.attributes['format'].value}`,
             callBack: (res) => {
                 xhrResponse.innerHTML = '';
-                    let ul = document.createElement('ul')
-                    res.map(r => {
-                        ul.innerHTML += 
+                let ul = document.createElement('ul')
+                res.map(r => {
+                    ul.innerHTML +=
                         `<li id="item_${r.item_}">
                             <h3>
                                 Item Nro: ${r.item_} - ${r.nombre} 
@@ -129,10 +135,10 @@ ajaxButtons.addEventListener('click', (e) => {
                                 Descripción: <span>${r.desc}</span>
                             </h4> 
                             <button class="btn-comprar boton-agregar">Comprar</button> 
-                        </li>`                        
-                    })                    
-                    xhrResponse.appendChild(ul);
-                    callAcctionsVentas()
+                        </li>`
+                })
+                xhrResponse.appendChild(ul);
+                callAcctionsVentas()
             }
         })
     }
@@ -153,19 +159,19 @@ const
     root = document.getElementById('root'),
     promise = document.getElementsByClassName('promise');
 
-    async function fetchData(request){
-        try {
-            let data = await fetch(request.url);
-            if(data.status >= 400) throw new Error(data.status)
-            return await data.json();
-        }
-        catch (e){
-            renderError(e)
-        }        
+async function fetchData(request) {
+    try {
+        let data = await fetch(request.url);
+        if (data.status >= 400) throw new Error(data.status)
+        return await data.json();
     }
+    catch (e) {
+        renderError(e)
+    }
+}
 
 // Encabezados de Tabla
-function stockTableHeadings(){
+function stockTableHeadings() {
     return `
         <thead>
             <tr>
@@ -181,7 +187,7 @@ function stockTableHeadings(){
 
 // Celdas por Fila
 // Uso || para evitar que detenga el código en caso que no exista el Ítem.
-function stockTableRows(stock){
+function stockTableRows(stock) {
     return `
         <tr id="item_${stock.id}">
             <td>${stock.nombre || 'Nombre'}</td> 
@@ -195,15 +201,15 @@ function stockTableRows(stock){
         </tr>`
 }
 // Tabla de Usuarios
-function stockTable(stocks){
+function stockTable(stocks) {
     const table = document.createElement('table');
     Object.assign(table, {
         className: 'table table-dark table-striped',
         id: 'stock_table',
         innerHTML: `
-            ${ stockTableHeadings() } 
+            ${stockTableHeadings()} 
             <tbody>
-                ${ stocks.map(stock => stockTableRows(stock)) }
+                ${stocks.map(stock => stockTableRows(stock))}
             </tbody>
             `
     })
@@ -212,7 +218,7 @@ function stockTable(stocks){
 }
 
 // Resultado No encontrado
-function renderError(error){
+function renderError(error) {
     const errorMessage = document.createElement('div')
     Object.assign(errorMessage, {
         className: 'card',
@@ -226,15 +232,15 @@ function renderError(error){
 
 // Acciones del usuario
 const btnPromise = document.getElementById('promises')
-btnPromise.addEventListener('click', async(e) => {
+btnPromise.addEventListener('click', async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const results = await fetchData({url: `./${page}`})
-    if (promise){
+    const results = await fetchData({ url: `./${page}` })
+    if (promise) {
         root.innerHTML = '';
-        stockTable(results) 
-        btnReload()  
-        let res = results.filter(e => e.id == 1)   
+        stockTable(results)
+        btnReload()
+        let res = results.filter(e => e.id == 1)
     }
 })
 
@@ -246,19 +252,19 @@ callModal(FilteredResult)
 
 */
 
-function callAcctions(){
+function callAcctions() {
     const botones = d.querySelectorAll('.btn-comprar')
-    botones.forEach(b =>{
-        b.addEventListener('click', e =>{
+    botones.forEach(b => {
+        b.addEventListener('click', e => {
             const productId = e.target.parentNode.parentNode.id.split("_")[1]
         })
     })
 }
 
-function callAcctionsVentas(){
+function callAcctionsVentas() {
     const botones = d.querySelectorAll('.btn-comprar')
-    botones.forEach(b =>{
-        b.addEventListener('click', e =>{
+    botones.forEach(b => {
+        b.addEventListener('click', e => {
             const productIdVentas = e.target.parentNode.id.split("_")[1]
         })
     })
