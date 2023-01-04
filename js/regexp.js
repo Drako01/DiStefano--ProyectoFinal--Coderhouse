@@ -1,7 +1,6 @@
 const
     formControls = d.querySelectorAll('#contact input'),
-    valid = d.querySelectorAll('.validation'),
-    btnSubmit = d.querySelectorAll('#contact .btn-submit');
+    valid = d.querySelectorAll('.validation');
 
 formControls.forEach(input => {
     input.addEventListener('input', (e) => {
@@ -24,7 +23,7 @@ formControls.forEach(input => {
     })
 });
 
-
+// Aquí hago uso de un Regex para validar con JS los Inputs
 function validation(args, type) {
     let regexp;
     switch (type) {
@@ -56,4 +55,7 @@ function guardarDatos() {
 /*
     Con la funcion guardarDatos() simplemente hago un LocalStorage del Contacto que
     se acaba de agregar y manda un SweetAlert del Contacto agregado en caso exitoso.
+    No profundicé en el concepto de LocalStorage, ni en armar una Lista para que se guarden
+    varios contactos, ni en la recuperación, ni en la eliminación; porque eso ya lo hice
+    con el Carrito de compras. Acá solamente muestro la Implementacions del SweetAlert.
 */
