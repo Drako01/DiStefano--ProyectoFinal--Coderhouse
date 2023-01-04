@@ -1,16 +1,16 @@
 const
-    contenedorProductos = document.getElementById('contenedor-productos'),
-    contenedorCarrito = document.getElementById('carrito-contenedor'),
-    botonVaciar = document.getElementById('vaciar-carrito'),
-    contadorCarrito = document.getElementById('contadorCarrito'),
-    cantidad = document.getElementById('cantidad'),
-    precioTotal = document.getElementById('precioTotal'),
-    cantidadTotal = document.getElementById('cantidadTotal');
+    contenedorProductos = d.getElementById('contenedor-productos'),
+    contenedorCarrito = d.getElementById('carrito-contenedor'),
+    botonVaciar = d.getElementById('vaciar-carrito'),
+    contadorCarrito = d.getElementById('contadorCarrito'),
+    cantidad = d.getElementById('cantidad'),
+    precioTotal = d.getElementById('precioTotal'),
+    cantidadTotal = d.getElementById('cantidadTotal');
 
 
 let carrito = []
 
-document.addEventListener('DOMContentLoaded', () => {
+d.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
         actualizarCarrito()
@@ -24,7 +24,7 @@ botonVaciar.addEventListener('click', () => {
 })
 
 stockProductos.forEach((producto) => {
-    const div = document.createElement('div')
+    const div = d.createElement('div')
     div.classList.add('producto')
     div.innerHTML = `
                     <div class="imagen-prod">
@@ -39,7 +39,7 @@ stockProductos.forEach((producto) => {
 
     contenedorProductos.appendChild(div)
 
-    const boton = document.getElementById(`agregar${producto.id}`)
+    const boton = d.getElementById(`agregar${producto.id}`)
 
     boton.addEventListener('click', () => {
         agregarAlCarrito(producto.id)
@@ -62,7 +62,8 @@ const agregarAlCarrito = (prodId) => {
     actualizarCarrito()
 }
 const eliminarDelCarrito = (prodId) => {
-    const item = carrito.find((prod) => prod.id === prodId),
+    const 
+        item = carrito.find((prod) => prod.id === prodId),
         indice = carrito.indexOf(item);
 
     carrito.splice(indice, 1)
@@ -73,8 +74,9 @@ const eliminarDelCarrito = (prodId) => {
 const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
     carrito.forEach((prod) => {
-        const div = document.createElement('div')
+        const div = d.createElement('div')
         div.className = ('productoEnCarrito')
+        div.id = `item_${prod.id}`
         div.innerHTML = `
                         <p>${prod.nombre}</p>
                         <p>Precio:$${prod.precio}</p>
@@ -87,6 +89,32 @@ const actualizarCarrito = () => {
     })
     contadorCarrito.innerText = carrito.length
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+}
+
+function callToAcctions() {
+    carrito.forEach((prod) => {
+        let comprarCarrito = d.getElementById('comprar-carrito');
+        let itemComprado = d.getElementById(`item_${prod.id}`);
+        
+        comprarCarrito.addEventListener('click', e =>{
+        productId = itemComprado.id.split("_")[1]
+        
+        carrito.forEach((producto) => {
+            let resoult = carrito.filter(e => e.id == producto.id)[0],
+                ids = resoult.id;
+                if (ids == productId){
+                    let stockCarrito = localStorage.getItem('carrito', JSON.stringify(carrito))
+                    const stock = (
+                        JSON.parse(stockCarrito)
+                    )                   
+                        stock.forEach((s) => {      
+                            return swal('Compra Realizada con Éxito', 'Usted acaba de Comprar: ' + s.cantidad + ' Unidad de: ' + s.nombre + 
+                            ', Talle: ' + s.talle + ', por un total de: $' + (s.precio * s.cantidad) + '.- (ARS)', 'success')      
+                    })                   
+                }  
+        })
+        
+    })})
 }
 
 //Implementacion de la Libreria SwiperJS 
