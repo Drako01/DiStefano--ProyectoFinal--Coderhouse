@@ -245,13 +245,6 @@ btnPromise.addEventListener('click', async (e) => {
     }
 })
 
-/*
-response.filter( element => id == id)
-resultado = fetch('datos')
-resultado.filter(e => e.id == prodID)
-callModal(FilteredResult)
-
-*/
 
 function callAcctions() {
     const botones = d.querySelectorAll('.btn-comprar')
@@ -272,16 +265,6 @@ function callAcctions() {
                             ' Talle: ' + size + ', por un total de: $' + price + '.- (ARS)', 'success')                         
                     }  
             })
-            // console.log(productId + ' Este es el ID')
-        })
-    })
-}
-
-function callAcctionsVentas() {
-    const botones = d.querySelectorAll('.btn-comprar')
-    botones.forEach(b => {
-        b.addEventListener('click', e => {
-            const productIdVentas = e.target.parentNode.id.split("_")[1]
         })
     })
 }
