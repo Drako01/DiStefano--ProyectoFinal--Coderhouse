@@ -254,15 +254,12 @@ function callAcctions() {
                 productId = e.target.parentNode.parentNode.id.split("_")[1];
                 
             results.map((producto) => {
-                let res = results.filter(e => e.id == producto.id)[0].id,
-                    name = results.filter(e => e.id == producto.id)[0].nombre,
-                    size = results.filter(e => e.id == producto.id)[0].talle,
-                    cant = results.filter(e => e.id == producto.id)[0].cantidad,
-                    price = results.filter(e => e.id == producto.id)[0].precio;
-                    if (res == productId){
+                let res = results.filter(e => e.id == producto.id)[0],
+                    ids = res.id;
+                    if (ids == productId){
                         // Dentro de este IF va la Accion de comprar
-                        swal('Compra Realizada con Éxito', 'Usted acaba de Comprar: ' + cant + ' Unidad de: ' + name + 
-                            ' Talle: ' + size + ', por un total de: $' + price + '.- (ARS)', 'success')                         
+                        swal('Compra Realizada con Éxito', 'Usted acaba de Comprar: ' + res.cantidad + ' Unidad de: ' + res.nombre + 
+                            ', Talle: ' + res.talle + ', por un total de: $' + res.precio + '.- (ARS)', 'success')                         
                     }  
             })
         })
