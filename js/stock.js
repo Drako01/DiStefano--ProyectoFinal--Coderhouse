@@ -84,5 +84,5 @@ let stockProductos = [
 /* 
 En un Proyecto Real usaría o éste Formato o el Formato JSON, 
 pero en éste proyecto en particular, decidí poner ambas opciones 
-asi muestro como trabajarlas desde tanto desde leer un Array como un JSON.
+asi muestro como trabajarlas desde tanto desde leer un Array de Objetos como un JSON.
 */
