@@ -116,29 +116,31 @@ ajaxButtons.addEventListener('click', (e) => {
                 res.map(r => {
                     ul.innerHTML +=
                         `<li id="item_${r.item_}">
-                            <h3>
-                                Item Nro: ${r.item_} - ${r.nombre} 
-                            </h3>
-                            <h4>
-                                Sólo queda en Talle <span>${r.talle} </span>
-                            </h4>
-                            <h4>
-                                Valor: $<span>${r.precio}</span>
-                            </h4> 
-                            <div class="imagen-min">                       
-                                <img src="${r.img}" alt="${r.nombre}">  
-                            </div>  
-                            <h4>
-                                Cantidad en Stock: <span>${r.cantidad}</span>
-                            </h4> 
-                            <h4> 
-                                Descripción: <span>${r.desc}</span>
-                            </h4> 
-                            <button class="btn-comprar boton-agregar">Comprar</button> 
+                            <div>                            
+                                <h3>
+                                    Item Nro: ${r.item_} - ${r.nombre} 
+                                </h3>
+                                <h4>
+                                    Sólo queda en Talle <span>${r.talle} </span>
+                                </h4>
+                                <h4>
+                                    Valor: $<span>${r.precio}</span>
+                                </h4> 
+                                <div class="imagen-min">                       
+                                    <img src="${r.img}" alt="${r.nombre}">  
+                                </div>  
+                                <h4>
+                                    Cantidad en Stock: <span>${r.cantidad}</span>
+                                </h4> 
+                                <h4> 
+                                    Descripción: <span>${r.desc}</span>
+                                </h4> 
+                                <button class="btn-comprar boton-agregar">Comprar</button> 
+                            </div>
                         </li>`
                 })
                 xhrResponse.appendChild(ul);
-                callAcctionsVentas()
+                callAcctions()
             }
         })
     }
@@ -239,8 +241,7 @@ btnPromise.addEventListener('click', async (e) => {
     if (promise) {
         root.innerHTML = '';
         stockTable(results)
-        btnReload()
-        let res = results.filter(e => e.id == 1)
+        btnReload()   
     }
 })
 
@@ -255,8 +256,23 @@ callModal(FilteredResult)
 function callAcctions() {
     const botones = d.querySelectorAll('.btn-comprar')
     botones.forEach(b => {
-        b.addEventListener('click', e => {
-            const productId = e.target.parentNode.parentNode.id.split("_")[1]
+        b.addEventListener('click', async (e) => {
+            const results = await fetchData({ url: `./${page}` }),
+                productId = e.target.parentNode.parentNode.id.split("_")[1];
+                
+            results.map((producto) => {
+                let res = results.filter(e => e.id == producto.id)[0].id,
+                    name = results.filter(e => e.id == producto.id)[0].nombre,
+                    size = results.filter(e => e.id == producto.id)[0].talle,
+                    cant = results.filter(e => e.id == producto.id)[0].cantidad,
+                    price = results.filter(e => e.id == producto.id)[0].precio;
+                    if (res == productId){
+                        // Dentro de este IF va la Accion de comprar
+                        swal('Compra Realizada con Éxito', 'Usted acaba de Comprar: ' + cant + ' Unidad de: ' + name + 
+                            ' Talle: ' + size + ', por un total de: $' + price + '.- (ARS)', 'success')                         
+                    }  
+            })
+            // console.log(productId + ' Este es el ID')
         })
     })
 }
