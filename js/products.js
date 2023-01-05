@@ -5,8 +5,32 @@ const
     contadorCarrito = d.getElementById('contadorCarrito'),
     cantidad = d.getElementById('cantidad'),
     precioTotal = d.getElementById('precioTotal'),
-    cantidadTotal = d.getElementById('cantidadTotal');
+    cantidadTotal = d.getElementById('cantidadTotal'),
+    contenedorModal = d.getElementsByClassName('modal-contenedor')[0],
+    botonAbrir = d.getElementById('boton-carrito'),
+    botonCerrar = d.getElementById('carritoCerrar'),
+    modalCarrito = d.getElementsByClassName('modal-carrito')[0];
 
+
+botonAbrir.addEventListener('click', ()=>{
+    contenedorModal.classList.toggle('modal-active')
+})
+
+botonCerrar.addEventListener('click', ()=>{
+    contenedorModal.classList.toggle('modal-active')    
+})
+
+function botonCerrarFc(){
+    contenedorModal.classList.toggle('modal-active')
+}
+
+
+contenedorModal.addEventListener('click', () =>{
+    contenedorModal.classList.toggle('modal-active')
+})
+modalCarrito.addEventListener('click', (event) => {
+    event.stopPropagation() 
+})
 
 let carrito = []
 
@@ -91,6 +115,11 @@ const actualizarCarrito = () => {
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
 }
 
+function refresh(){
+    botonCerrarFc()
+    location.reload();
+}
+
 function callToAcctions() {
     carrito.forEach((prod) => {
         let
@@ -101,8 +130,18 @@ function callToAcctions() {
 
         if (ids == productId) {
 
-            const felicitaciones = `¡¡felicitaciones!!`
-            swal('¡Compra Realizada con Éxito!', felicitaciones.toUpperCase(), 'success')
+            const 
+                felicitaciones = `¡¡felicitaciones!!`
+                
+            swal({ title: '¡Compra Realizada con Éxito!', 
+                    text: felicitaciones.toUpperCase(), 
+                    icon: 'success' , 
+                    button: 'Cerrar'})
+                    .then(() => {
+                        swal(`¡Gracias por su Compra!`);
+                        });
+            localStorage.clear()
+            setTimeout(refresh, 4000);
         }
     })
     if (carrito.length == 0) {
