@@ -12,11 +12,10 @@ const
         logout.className = 'btnLogout'
 
 const datosUsuario = 
-    {
-        user: "Alejandro",
-        password: "1234",
-        imagen: "./img/alejandro.png"
-    };
+                    {
+                        user: "Alejandro",
+                        password: "1234"
+                    };
 
 const storageDates = (clave, valor) => {
     localStorage.setItem(clave, JSON.stringify(valor))
@@ -28,10 +27,14 @@ const obtenerDelLs = (clave) => {
 
 function loginSucss(){         
     logout.style.display = "block"              
-    textoLogout.style.display = "block"    
-    textoLogout.innerHTML = `<h2>Bienvenido <span>${datosUsuario.user}</span> a la Pantalla de Inicio de Sesión</h2>
-                            <h2>Desde esta pantalla puede Cerrar la misma.!</h2>
-                            <img src="${datosUsuario.imagen}" alt="${datosUsuario.user}" class="img-login">` 
+    textoLogout.style.display = "block"     
+        const imageURL = '../img/alejandro.png'
+        swal({
+            title: `Bienvenido ${datosUsuario.user}`,
+            text: 'Desde esta pantalla puede Cerrar la Sesión.!',
+            icon: imageURL,
+        });    
+    
     login.style.display = "none" 
     contenedorForm.style.display = "none" 
 }
