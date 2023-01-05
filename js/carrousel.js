@@ -257,9 +257,18 @@ function callAcctions() {
                 let res = results.filter(e => e.id == producto.id)[0],
                     ids = res.id;
                     if (ids == productId){
-                        // Dentro de este IF va la Accion de comprar
-                        swal('Compra Realizada con Éxito', 'Usted acaba de Comprar: ' + res.cantidad + ' Unidad de: ' + res.nombre + 
-                            ', Talle: ' + res.talle + ', por un total de: $' + res.precio + '.- (ARS)', 'success')                         
+                        const items = `    
+                    
+                            Producto: ${res.nombre}
+
+                            Cantidad: ${res.cantidad}
+
+                            Precio unitario: $${res.precio}.- (ARS)
+
+                            TOTAL: $${(res.precio * res.cantidad)}.- (ARS)
+
+                            `
+                        swal('Compra Realizada con Éxito', items, 'success')                         
                     }  
             })
         })

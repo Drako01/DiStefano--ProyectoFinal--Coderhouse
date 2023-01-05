@@ -62,7 +62,7 @@ const agregarAlCarrito = (prodId) => {
     actualizarCarrito()
 }
 const eliminarDelCarrito = (prodId) => {
-    const 
+    const
         item = carrito.find((prod) => prod.id === prodId),
         indice = carrito.indexOf(item);
 
@@ -95,26 +95,28 @@ function callToAcctions() {
     carrito.forEach((prod) => {
         let comprarCarrito = d.getElementById('comprar-carrito');
         let itemComprado = d.getElementById(`item_${prod.id}`);
-        
-        comprarCarrito.addEventListener('click', e =>{
-        productId = itemComprado.id.split("_")[1]
-        
-        carrito.forEach((producto) => {
-            let resoult = carrito.filter(e => e.id == producto.id)[0],
+
+        comprarCarrito.addEventListener('click', () => {
+            let productId = itemComprado.id.split("_")[1],
+                resoult = carrito.filter(e => e.id == prod.id)[0],
                 ids = resoult.id;
-                if (ids == productId){
-                    let stockCarrito = localStorage.getItem('carrito', JSON.stringify(carrito))
-                    const stock = (
-                        JSON.parse(stockCarrito)
-                    )                   
-                        stock.forEach((s) => {      
-                            return swal('Compra Realizada con Éxito', 'Usted acaba de Comprar: ' + s.cantidad + ' Unidad de: ' + s.nombre + 
-                            ', Talle: ' + s.talle + ', por un total de: $' + (s.precio * s.cantidad) + '.- (ARS)', 'success')      
-                    })                   
-                }  
+
+            if (ids == productId) {
+                const items = `    
+                    
+                    Producto: ${prod.nombre}
+
+                    Cantidad: ${prod.cantidad}
+
+                    Precio unitario: $${prod.precio}.- (ARS)
+
+                    TOTAL: $${(prod.precio * prod.cantidad)}.- (ARS)
+
+                    `
+                swal('¡Compra Realizada con Éxito!', items, 'success')
+            }
         })
-        
-    })})
+    })
 }
 
 //Implementacion de la Libreria SwiperJS 
