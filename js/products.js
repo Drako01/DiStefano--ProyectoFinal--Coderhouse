@@ -92,38 +92,31 @@ const actualizarCarrito = () => {
 }
 
 function callToAcctions() {
-    carrito.forEach((prod) => {        
-        let 
+    carrito.forEach((prod) => {
+        let
             itemComprado = d.getElementById(`item_${prod.id}`),
             productId = itemComprado.id.split("_")[1],
             resoult = carrito.filter(e => e.id == prod.id)[0],
             ids = resoult.id;
 
-            if (ids == productId) {
-                const items = `    
-                    
-                    Producto: ${prod.nombre}
+        if (ids == productId) {
 
-                    Cantidad: ${prod.cantidad}
+            const felicitaciones = `¡¡felicitaciones!!`
+            swal('¡Compra Realizada con Éxito!', felicitaciones.toUpperCase(), 'success')
+        }
+    })
+    if (carrito.length == 0) {
+        swal('¡El Carrito está vacío!', '', 'error')
+    }
 
-                    Precio unitario: $${prod.precio}.- (ARS)
-
-                    TOTAL: $${(prod.precio * prod.cantidad)}.- (ARS)
-
-                    `
-                swal('¡Compra Realizada con Éxito!', items, 'success')
-            } 
-        })
-        if (carrito.length == 0){
-            swal('¡El Carrito está vacío!', '',  'error')
-            }
-        
 }
 
 let comprarCarrito = d.getElementById('comprar-carrito');
 comprarCarrito.addEventListener('click', () => {
     return callToAcctions()
 })
+
+
 //Implementacion de la Libreria SwiperJS 
 const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
