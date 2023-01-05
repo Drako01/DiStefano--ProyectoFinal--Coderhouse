@@ -268,7 +268,7 @@ function callAcctions() {
                             TOTAL: $${(res.precio * res.cantidad)}.- (ARS)
 
                             `
-                        swal('Compra Realizada con Éxito', items, 'success')                         
+                        swal('¡Compra Realizada con Éxito!', items, 'success')                         
                     }  
             })
         })
