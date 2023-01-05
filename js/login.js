@@ -59,7 +59,7 @@ formLogin.onsubmit = (event) => {
             
             const imageURL = `./img/${u.user}.png`
             swal({
-                title: `Bienvenido ${u.user}`,
+                title: `Bienvenid@ ${u.user}`,
                 text: 'Desde esta pantalla puede Cerrar la Sesión.!',
                 icon: imageURL,
             });
