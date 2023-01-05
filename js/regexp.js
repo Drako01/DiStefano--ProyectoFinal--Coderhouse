@@ -55,7 +55,6 @@ function guardarDatos() {
 
     swal(datos['nombre'].toUpperCase(), 'Contacto Agregado Correctamente al LocalStorage', 'success')
 }
-//#endregion
 
 /*
     Con la funcion guardarDatos() simplemente hago un LocalStorage del Contacto que
@@ -64,3 +63,5 @@ function guardarDatos() {
     varios contactos, ni en la recuperación, ni en la eliminación; porque eso ya lo hice
     con el Carrito de compras. Acá solamente muestro la Implementacions del SweetAlert.
 */
+
+//#endregion

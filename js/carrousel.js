@@ -159,7 +159,7 @@ Por eso desde acá llamo al Archivo "stock.json" y lo manejo con AJAX.
 */
 //#endregion
 
-//#region Uso de Promises
+//#region Uso de Promesas con Try & Catch
 
 const
     page = 'stock.json',
@@ -176,8 +176,10 @@ async function fetchData(request) {
         renderError(e)
     }
 }
+//#endregion
 
-// Encabezados de Tabla
+//#region Funciones y Encabezados de Tabla
+
 function stockTableHeadings() {
     return `
         <thead>
