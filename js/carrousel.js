@@ -6,7 +6,9 @@ const
     prev = document.querySelectorAll('.carrousel .prev'),
     next = document.querySelectorAll('.carrousel .next'),
     tienda = document.getElementById('index'),
-    tiendaDiv = document.createElement('div');
+    tiendaDiv = document.createElement('div'),
+    //Esta URL es solo para el Despliegue en la Pagina de GitHub
+    urlGitHub = 'https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/'; 
 
 tiendaDiv.className = ('tiendaBtn')
 tiendaDiv.id = 'xhr'
