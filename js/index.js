@@ -1,4 +1,4 @@
-// Defino las Variables (Utilizando todas las formas vistas)
+//#region Defino las Variables (Utilizando todas las formas vistas)
 let nombre = 'Alejandro Daniel Di Stefano',
     comision = 44555,
     links = [
@@ -64,9 +64,9 @@ function setFooter() {
     copy.innerHTML = `&copy;${anio} ${copy.innerHTML} | ${nombre} de la Comisión #${comision}`;
 }
 setFooter();
+//#endregion
 
-
-//********** Manejo del DOM **********//
+//#region ********** Manejo del DOM **********//
 
 // Defino la Navbar utilizando una Iteracion con forEach
 const navBar = () => {
@@ -106,7 +106,7 @@ switchButton.addEventListener('click', () => {
     d.body.classList.toggle('dark');
     switchButton.classList.toggle('active');
 });
-
+//#endregion
 
 /* 1er Entrega
     1. Conceptos generales: Sintaxis y variables

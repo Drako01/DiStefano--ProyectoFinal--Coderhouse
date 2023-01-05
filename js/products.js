@@ -1,3 +1,4 @@
+//#region Variables principales y Botones
 const
     contenedorProductos = d.getElementById('contenedor-productos'),
     contenedorCarrito = d.getElementById('carrito-contenedor'),
@@ -69,6 +70,9 @@ stockProductos.forEach((producto) => {
         agregarAlCarrito(producto.id)
     })
 })
+//#endregion
+
+//#region Funciones principales
 
 const agregarAlCarrito = (prodId) => {
     const productExist = carrito.some(prod => prod.id === prodId)
@@ -154,9 +158,9 @@ let comprarCarrito = d.getElementById('comprar-carrito');
 comprarCarrito.addEventListener('click', () => {
     return callToAcctions()
 })
+//#endregion
 
-
-//Implementacion de la Libreria SwiperJS 
+//#region Implementacion de la Libreria SwiperJS 
 const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     centeredSlides: true,
@@ -173,3 +177,4 @@ const swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+//#endregion

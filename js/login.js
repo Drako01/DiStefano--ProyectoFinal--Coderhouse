@@ -1,4 +1,4 @@
-
+//#region Variables
 const
     formLogin = d.querySelector("#login"),
     inputUser = d.querySelector("#input-user"),
@@ -30,6 +30,10 @@ const storageDates = (clave, valor) => {
 const obtenerDelLs = (clave) => {
     return JSON.parse(localStorage.getItem(clave))
 }
+
+//#endregion
+
+//#region Funciones e Implementacion de SweetAlert
 
 function loginSucss() {
     logout.style.display = "block"
@@ -88,3 +92,4 @@ logout.onclick = () => {
     return logoutSucss()
 }
 
+//#endregion

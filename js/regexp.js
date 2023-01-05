@@ -1,3 +1,4 @@
+//#region Variables y recorrido de datos del Formulario
 const
     formControls = d.querySelectorAll('#contact input'),
     valid = d.querySelectorAll('.validation');
@@ -22,8 +23,9 @@ formControls.forEach(input => {
 
     })
 });
+//#endregion
 
-// Aquí hago uso de un Regex para validar con JS los Inputs
+//#region Aquí hago uso de un Regex para validar con JS los Inputs
 function validation(args, type) {
     let regexp;
     switch (type) {
@@ -39,8 +41,9 @@ function validation(args, type) {
     }
     return regexp.test(args)
 };
+//#endregion
 
-
+//#region Funcion Principal
 function guardarDatos() {
     const
         nombre = d.forms["formulario"]["nombre"].value
@@ -52,6 +55,8 @@ function guardarDatos() {
 
     swal(datos['nombre'].toUpperCase(), 'Contacto Agregado Correctamente al LocalStorage', 'success')
 }
+//#endregion
+
 /*
     Con la funcion guardarDatos() simplemente hago un LocalStorage del Contacto que
     se acaba de agregar y manda un SweetAlert del Contacto agregado en caso exitoso.

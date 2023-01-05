@@ -1,3 +1,4 @@
+//#region Variables principales y funciones básicas
 const
     className = 'active',
     slides = document.getElementsByClassName('carrousel'),
@@ -74,8 +75,9 @@ function btnReload() {
         }
     )
 }
+//#endregion
 
-// AJAX (Asynchronous Javascript AND XML)
+//#region AJAX (Asynchronous Javascript AND XML)
 function AJAX(req) {
     const xhr = new XMLHttpRequest;
     xhr.open(req.method || 'get', req.url);
@@ -153,8 +155,9 @@ pero en éste proyecto en particular, decidí poner ambas opciones
 asi muestro como trabajarlas desde tanto desde leer un Array como un JSON.
 Por eso desde acá llamo al Archivo "stock.json" y lo manejo con AJAX.
 */
+//#endregion
 
-//Uso de Promises
+//#region Uso de Promises
 
 const
     page = 'stock.json',
@@ -274,3 +277,4 @@ function callAcctions() {
         })
     })
 }
+//#endregion

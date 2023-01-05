@@ -1,3 +1,4 @@
+//#region Defino el Listado de Stock
 let stockProductos = [
     { 
         id: 1,
@@ -80,6 +81,7 @@ let stockProductos = [
         img: './img/remera04.png' 
     },
 ]
+//#endregion
 
 /* 
 En un Proyecto Real usaría o éste Formato o el Formato JSON, 

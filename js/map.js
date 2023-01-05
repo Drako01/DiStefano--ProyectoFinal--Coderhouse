@@ -1,3 +1,4 @@
+//#region Manejo de DOM para Mapa
 const
     mapa = d.querySelector('#mapa')
 
@@ -6,3 +7,4 @@ imgMapa.className = 'textoMapa'
 imgMapa.innerHTML = `<img src="./img/logos_coderhouse.png">`
 
 mapa.appendChild(imgMapa)
+//#endregion

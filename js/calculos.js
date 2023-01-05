@@ -1,8 +1,9 @@
+//#region Variables y Funciones principales
 
 // Definimos las Variables del Crédito
 const calcularInteres = (cuotas) => cuotas <= 12 ? 20 : cuotas <= 18 ? 30 : cuotas <= 24 ? 40 : 50
 
-// Defino valores de las Cuotas y del Monto total con redondeo de 2 Decimales
+//Defino valores de las Cuotas y del Monto total con redondeo de 2 Decimales
 const calcularCuotas = (i) =>
     modalidad.value == 'Frances' ?
         parseFloat(monto.value * (i / (1 - (1 + i) ** (cantCuotas.value * -1))), 2) :
@@ -38,9 +39,9 @@ function resultado(i) {
 
 }
 
+//#endregion
 
-
-// Defino Tabla de Simulación iterando con un for el objeto "formulario"
+//#region Defino Tabla de Simulación iterando con un for el objeto "formulario"
 const sectionTabla = (limits = []) => {
     let
         sectionTabla = d.createElement('section'),
@@ -88,8 +89,9 @@ const showSelected = () => {
     })
     resultado(interes);
 }
+//#endregion
 
-
+//#region Horario
 
 // Defino la hora estandar de Argentina
 const 
@@ -119,3 +121,4 @@ const refresh = d.createElement('div'),
                 location.reload();
     })
 
+//#endregion
