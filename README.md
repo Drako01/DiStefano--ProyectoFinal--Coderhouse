@@ -72,7 +72,7 @@
 ## Entrega Final:
 
 
-### Proyecto Integrador que Incluya todos los Temas vistos en el Curso.
+### "Proyecto Integrador que Incluya todos los Temas vistos en el Curso".
 
 
 
@@ -91,5 +91,10 @@ Usuario: Carola
 Contraseña: 1234
 ```
 ---
+<h2 align="center"> 
+Autor: Alejandro Daniel Di Stefano
+<img src="./img/logos_coderhouse.png" alt="CoderHouse"  height="100"/>
+</h2>
 
-## Autor: Alejandro Daniel Di Stefano
+
+---
