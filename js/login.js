@@ -61,7 +61,7 @@ formLogin.onsubmit = (event) => {
         if (inputUser.value === u.user && inputPass.value === u.password) {
             storageDates(u.user, u.password)
             
-            const imageURL = `../img/${u.user}.png`
+            const imageURL = `./img/${u.user}.png`
             swal({
                 title: `Bienvenid@ ${u.user}`,
                 text: 'Desde esta pantalla puede Cerrar la Sesión.!',
