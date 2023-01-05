@@ -77,11 +77,19 @@
 
 
 ---
+```ssh
+Usuarios para el Login (Respetar las Mayúsculas)
+------------------------------------------------
 
-## Usuario: Alejandro
-## Contraseña: 1234
+1er Usuario:
+Usuario: Alejandro
+Contraseña: 1234
 
 
+2do Usuario:
+Usuario: Carola
+Contraseña: 1234
+```
 ---
 
 ## Autor: Alejandro Daniel Di Stefano
