@@ -48,14 +48,10 @@ formLogin.onsubmit = (event) => {
         let linksNav = d.querySelectorAll('nav ul li')
         linksNav.forEach((l) => {
             l.classList.add('hidden')
-        })
-        
+        })        
         return loginSucss()
-    } else {         
-        loginIncorrecto.style.display = "block"
-        loginIncorrecto.style.color = "red"
-        inputPass.style.border = "1px solid red"
-        inputUser.style.border = "1px solid red" 
+    } else {     
+        swal('Usuario o Password Incorrecto', 'Intente Nuevamente', 'error')
     }
 }
 
