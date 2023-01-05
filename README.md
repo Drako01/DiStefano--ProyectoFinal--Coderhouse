@@ -55,7 +55,7 @@
  12. Operadores avanzados 
 ```
 
-### 4ta Entrega
+### 4ta Entrega (Final que incluye Todo)
 
 
 ```ssh
