@@ -428,6 +428,10 @@ body.dark .boton-agregar {
   width: 180px;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 #logint,
 #textoLogout {
   display: none;

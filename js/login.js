@@ -1,13 +1,13 @@
 
 const   
-        formLogin = document.querySelector("#login"),
-        inputUser = document.querySelector("#input-user"),
-        inputPass = document.querySelector("#input-pass"),
-        loginIncorrecto = document.querySelector("#logint"),
-        contenedorForm = document.querySelector("#div-login"),
-        textoLogout = document.querySelector("#textoLogout"),
-        logout = document.querySelector("#logout"),
-        login = document.querySelector("#loginBtn");       
+        formLogin = d.querySelector("#login"),
+        inputUser = d.querySelector("#input-user"),
+        inputPass = d.querySelector("#input-pass"),
+        loginIncorrecto = d.querySelector("#logint"),
+        contenedorForm = d.querySelector("#div-login"),
+        textoLogout = d.querySelector("#textoLogout"),
+        logout = d.querySelector("#logout"),
+        login = d.querySelector("#loginBtn");    
     
         logout.className = 'btnLogout'
 
@@ -28,7 +28,7 @@ const obtenerDelLs = (clave) => {
 function loginSucss(){         
     logout.style.display = "block"              
     textoLogout.style.display = "block"     
-        const imageURL = '../img/alejandro.png'
+        const imageURL = './img/alejandro.png'
         swal({
             title: `Bienvenido ${datosUsuario.user}`,
             text: 'Desde esta pantalla puede Cerrar la Sesión.!',
@@ -42,9 +42,14 @@ function loginSucss(){
 
 formLogin.onsubmit = (event) => {
     event.preventDefault()
-    if (inputUser.value === datosUsuario.user && inputPass.value === datosUsuario.password) {
+    if (inputUser.value === datosUsuario.user && inputPass.value === datosUsuario.password) {        
         storageDates(datosUsuario.user, datosUsuario.password)  
-        loginIncorrecto.style.display = "none"        
+        loginIncorrecto.style.display = "none" 
+        let linksNav = d.querySelectorAll('nav ul li')
+        linksNav.forEach((l) => {
+            l.classList.add('hidden')
+        })
+        
         return loginSucss()
     } else {         
         loginIncorrecto.style.display = "block"
@@ -70,6 +75,5 @@ logout.onclick = () => {
     validarLogin(obtenerDelLs(datosUsuario.user))      
     formLogin.reset()   
     contenedorForm.style.display = "flex"
-    window.location.href = 'index.html';
 }
 

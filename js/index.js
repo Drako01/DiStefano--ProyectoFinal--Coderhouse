@@ -100,7 +100,7 @@ const navBar = () => {
 }
 navBar(links);
 
-const switchButton = document.getElementById('switch');
+const switchButton = d.getElementById('switch');
 
 switchButton.addEventListener('click', () => {
     d.body.classList.toggle('dark');
