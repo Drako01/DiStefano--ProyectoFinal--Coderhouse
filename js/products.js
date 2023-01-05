@@ -92,14 +92,12 @@ const actualizarCarrito = () => {
 }
 
 function callToAcctions() {
-    carrito.forEach((prod) => {
-        let comprarCarrito = d.getElementById('comprar-carrito');
-        let itemComprado = d.getElementById(`item_${prod.id}`);
-
-        comprarCarrito.addEventListener('click', () => {
-            let productId = itemComprado.id.split("_")[1],
-                resoult = carrito.filter(e => e.id == prod.id)[0],
-                ids = resoult.id;
+    carrito.forEach((prod) => {        
+        let 
+            itemComprado = d.getElementById(`item_${prod.id}`),
+            productId = itemComprado.id.split("_")[1],
+            resoult = carrito.filter(e => e.id == prod.id)[0],
+            ids = resoult.id;
 
             if (ids == productId) {
                 const items = `    
@@ -114,11 +112,18 @@ function callToAcctions() {
 
                     `
                 swal('¡Compra Realizada con Éxito!', items, 'success')
-            }
+            } 
         })
-    })
+        if (carrito.length == 0){
+            swal('¡El Carrito está vacío!', '',  'error')
+            }
+        
 }
 
+let comprarCarrito = d.getElementById('comprar-carrito');
+comprarCarrito.addEventListener('click', () => {
+    return callToAcctions()
+})
 //Implementacion de la Libreria SwiperJS 
 const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
