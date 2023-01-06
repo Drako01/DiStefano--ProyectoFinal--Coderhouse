@@ -375,10 +375,10 @@ body.dark .boton-agregar {
 }
 
 .promesass {
-  color: red;
-  padding: 1rem;
-  font-size: 1.3rem;
   text-align: center;
+  padding: 1rem;
+  color: red;
+  font-size: 1.3rem;
 }
 
 #logout {
