@@ -378,6 +378,7 @@ body.dark .boton-agregar {
   color: red;
   padding: 1rem;
   font-size: 1.3rem;
+  text-align: center;
 }
 
 #logout {

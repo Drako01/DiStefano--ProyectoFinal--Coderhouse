@@ -49,8 +49,13 @@ function resultado(i) {
         }
     })
     promise
-        .then(resultado => console.log('promesa cumplida: ' + resultado))
-        .catch(error => console.log('promesa rechazada: ' + error))
+        .then(resultado => divMensaje.innerHTML = resultado)
+        .catch(error => divMensaje.innerHTML = error)
+    divMensaje = d.createElement('div')
+    divMensaje.className = 'promesass'
+    divMensaje.id = 'promesass'
+    divTiempo = d.querySelectorAll('.tiempo')[0]
+    divTiempo.prepend(divMensaje)
     
 }
 
