@@ -139,6 +139,3 @@ refreshBtn.addEventListener('click', () => {
 })
 
 //#endregion
-
-
-
