@@ -41,11 +41,11 @@ function resultado(i) {
             valor = valueInteres
     
         console.log(valor)
-        if(valor == 20){
-            resolve('Es mayor')
+        if(valor >= 21){
+            resolve('La tasa de Interés es mayor al 20%')
         }
         else{
-            reject('Es menor')
+            reject('La tasa de Interés es del 20%')
         }
     })
     promise
