@@ -36,21 +36,7 @@ function resultado(i) {
             </div>
         `;
     section.appendChild(loan);
-    const promise = new Promise((resolve, reject) => {
-        const valueInteres = d.querySelector(' input.tasaInteres').attributes.value.value
-            valor = valueInteres
     
-        valor >= 21 ? resolve('La tasa de Interés es mayor al 20%') : reject('La tasa de Interés es del 20%')      
-
-    })
-    promise
-        .then(resultado => divMensaje.innerHTML = resultado)
-        .catch(error => divMensaje.innerHTML = error)
-    divMensaje = d.createElement('div')
-    divMensaje.className = 'promesass'
-    divMensaje.id = 'promesass'
-    divTiempo = d.querySelectorAll('.tiempo')[0]
-    divTiempo.prepend(divMensaje)
     
 }
 
@@ -92,8 +78,10 @@ const sectionTabla = (limits = []) => {
 }
 sectionTabla(formulario);
 
+//#endregion
 
-// Defino tabla de resultados
+//#region Defino tabla de resultados e Implemento Promises 
+
 const showSelected = () => {
     let interes;
     formulario.forEach(field => {
@@ -103,8 +91,19 @@ const showSelected = () => {
         a = calcularCuotas(interes);
     })
     resultado(interes);
-    
+    const promise = new Promise((resolve, reject) => {   
+        interes >= 21 ? resolve('La tasa de Interés es mayor al 20%') : reject('La tasa de Interés es del 20%')  
+    })
+    promise
+        .then(resultado => divMensaje.innerHTML = resultado)
+        .catch(error => divMensaje.innerHTML = error)
+    divMensaje = d.createElement('div')
+    divMensaje.className = 'promesass'
+    divMensaje.id = 'promesass'
+    divTiempo = d.querySelectorAll('.tiempo')[0]
+    divTiempo.prepend(divMensaje)
 }
+
 //#endregion
 
 //#region Horario
