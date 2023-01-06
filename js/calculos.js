@@ -40,13 +40,8 @@ function resultado(i) {
         const valueInteres = d.querySelector(' input.tasaInteres').attributes.value.value
             valor = valueInteres
     
-        console.log(valor)
-        if(valor >= 21){
-            resolve('La tasa de Interés es mayor al 20%')
-        }
-        else{
-            reject('La tasa de Interés es del 20%')
-        }
+        valor >= 21 ? resolve('La tasa de Interés es mayor al 20%') : reject('La tasa de Interés es del 20%')      
+
     })
     promise
         .then(resultado => divMensaje.innerHTML = resultado)
