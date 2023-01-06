@@ -63,7 +63,7 @@ const sectionTabla = (limits = []) => {
                 field.type == 'textarea' ?
                     `<textarea id="${field.id}"></textarea>` :
                     field.type != 'submit' ?
-                        `<input id=${field.id} type="${field.type}">` :
+                        `<input id=${field.id} type="${field.type}" class="${field.id}" value="">` :
                         `<button id="${field.id}" 
                     class="boton"
                     onclick="showSelected()">
@@ -123,3 +123,14 @@ refreshBtn.addEventListener('click', () => {
 })
 
 //#endregion
+
+
+
+
+
+
+
+
+
+
+
