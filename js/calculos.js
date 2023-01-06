@@ -7,27 +7,27 @@ const calcularInteres = (cuotas) => cuotas <= 12 ? 20 : cuotas <= 18 ? 30 : cuot
 const calcularCuotas = (i) =>
     modalidad.value == 'Frances' ?
         parseFloat(monto.value * (i / (1 - (1 + i) ** (cantCuotas.value * -1))), 2) :
-    modalidad.value == 'Aleman' ?
-        parseFloat((monto.value * i) / (1 - (1 - i) ** cantCuotas.value), 2) :
-        parseFloat(monto.value, 2) + (monto.value * i)
+        modalidad.value == 'Aleman' ?
+            parseFloat((monto.value * i) / (1 - (1 - i) ** cantCuotas.value), 2) :
+            parseFloat(monto.value, 2) + (monto.value * i)
 
 function resultado(i) {
     let section = d.querySelector('section');
-        monto = parseFloat(monto.value),
+    monto = parseFloat(monto.value),
         cantCuotas = parseInt(cantCuotas.value),
         iva = 1.21,
         mes = 360,
         anual = ((cantCuotas * mes) / 12) / mes,
-        cuota = (monto * (Math.pow(1 + i / 100, anual) * i / 100) / 
-                (Math.pow(1 + i / 100, anual) - 1)).toFixed(2), // Utilizo Math y pow para las Potencias
+        cuota = (monto * (Math.pow(1 + i / 100, anual) * i / 100) /
+            (Math.pow(1 + i / 100, anual) - 1)).toFixed(2), // Utilizo Math y pow para las Potencias
         total = Number((cuota * cantCuotas / 10)).toFixed(2),
         totalIVA = Number((total * iva).toFixed(2));
 
     loan = document.createElement('ul');
-        for (let i = 0; i < cantCuotas; i++) {
-            loan.innerHTML += `<div class="valor-cuota"><li> El valor de la Cuota 
+    for (let i = 0; i < cantCuotas; i++) {
+        loan.innerHTML += `<div class="valor-cuota"><li> El valor de la Cuota 
                                 ${parseInt(i + 1)} es de: $ ${(cuota / 10).toFixed(2)}.- ARS</li></div>`
-        }
+    }
     loan.innerHTML += `
             <div class="recuadro">
                 <h4>Ud. abonará al finalizar el Crédito:</h4>
@@ -94,31 +94,32 @@ const showSelected = () => {
 //#region Horario
 
 // Defino la hora estandar de Argentina
-const 
-    date = new Date().toLocaleDateString(),    
-    ahora = document.createElement('article');
+const
+    date = new Date().toLocaleDateString(),
+    ahora = document.createElement('article'),
+    refresh = d.createElement('div'),
+    refreshBtn = d.createElement('button');
 
-ahora.innerHTML = `<h4>La fecha Actual es:</h4>
-                    <h4>${date}</h4>`;
+ahora.innerHTML = ` <div>
+                        <h4>La fecha Actual es:</h4>
+                        <h4>${date}</h4>
+                    </div>`;
 ahora.className = 'tiempo';
 ahora.style.backgroundColor = 'var(--med)';
 main.appendChild(ahora);
 main.style.backgroundColor = 'var(--second)';
 
-const refresh = d.createElement('div'),
-    refreshBtn = d.createElement('button');
+refresh.className = 'refresh'
+refreshBtn.id = 'refresh'
+refreshBtn.className = 'boton'
+refreshBtn.innerText = 'Nueva Simulación'
 
-    refresh.className = 'refresh'
-    refreshBtn.id = 'refresh'
-    refreshBtn.className = 'boton'
-    refreshBtn.innerText = 'Nueva Simulación'
-    
-    ahora.appendChild(refresh)
-    refresh.appendChild(refreshBtn)
+ahora.appendChild(refresh)
+refresh.appendChild(refreshBtn)
 
-    // Por necesidad para darle mejor funcionalidad a la Página, agregué éste Evento
-    refreshBtn.addEventListener('click', () => {
-                location.reload();
-    })
+// Por necesidad para darle mejor funcionalidad a la Página, agregué éste Evento
+refreshBtn.addEventListener('click', () => {
+    location.reload();
+})
 
 //#endregion

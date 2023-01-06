@@ -254,6 +254,8 @@ footer {
 }
 
 .tiempo {
+  display: flex;
+  flex-direction: column;
   padding: 2rem 0 6rem 0;
 }
 .tiempo h4 {
@@ -264,7 +266,9 @@ footer {
 
 .refresh {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 1rem;
 }
 
@@ -368,6 +372,12 @@ body.dark .producto {
 }
 body.dark .boton-agregar {
   background-color: #989898;
+}
+
+.promesass {
+  color: red;
+  padding: 1rem;
+  font-size: 1.3rem;
 }
 
 #logout {
