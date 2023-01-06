@@ -36,7 +36,22 @@ function resultado(i) {
             </div>
         `;
     section.appendChild(loan);
-
+    const promise = new Promise((resolve, reject) => {
+        const valueInteres = d.querySelector(' input.tasaInteres').attributes.value.value
+            valor = valueInteres
+    
+        console.log(valor)
+        if(valor == 20){
+            resolve('Es mayor')
+        }
+        else{
+            reject('Es menor')
+        }
+    })
+    promise
+        .then(resultado => console.log('promesa cumplida: ' + resultado))
+        .catch(error => console.log('promesa rechazada: ' + error))
+    
 }
 
 //#endregion
@@ -82,12 +97,13 @@ sectionTabla(formulario);
 const showSelected = () => {
     let interes;
     formulario.forEach(field => {
-        eval(`const ${field['id']} = document.getElementById('${field['id']}')`);
+        eval(`const ${field['id']} = d.getElementById('${field['id']}')`);
         interes = calcularInteres(cantCuotas.value);
         tasaInteres.value = interes;
         a = calcularCuotas(interes);
     })
     resultado(interes);
+    
 }
 //#endregion
 
@@ -123,14 +139,6 @@ refreshBtn.addEventListener('click', () => {
 })
 
 //#endregion
-
-
-
-
-
-
-
-
 
 
 
