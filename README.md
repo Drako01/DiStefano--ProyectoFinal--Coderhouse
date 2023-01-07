@@ -106,7 +106,7 @@ Autor: Alejandro Daniel Di Stefano
 
 <div align="center" ><br><a href="https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/" target="_blank"> 
  <img src="./img/remera04.png" height="auto" width="300" border-radius= "20px";/> 
- <h3>Éste es Mi E-Commerce</h3>
+ <h3><u>Click Aquí</u>: Éste es Mi E-Commerce</h3>
  </a>
  
  <br>
