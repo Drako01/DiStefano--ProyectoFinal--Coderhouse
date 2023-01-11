@@ -108,43 +108,6 @@ switchButton.addEventListener('click', () => {
 });
 //#endregion
 
-/* 1er Entrega
-    1. Conceptos generales: Sintaxis y variables
-    
-    2. Control de flujos
-    
-    3. Ciclos e iteraciones
-    
-    4. Funciones 
-
-2da Entrega
-    5. Objetos
-    
-    6. Arrays
-    
-    7. Funciones de orden superior
-    
-    8. DOM 
-
-3er Entrega
-    9. Eventos
-
-    10. Storage & JSON
-
-    11. Workshop
-
-    12. Operadores avanzados 
-
-4ta Entrega
-    13. Librerías
-    
-    14. Asincronía y promesas
-    
-    15. Ajax & Fetch
-    
-    16. Frameworks & NodeJS
-
-***************************************************
-
+/*
     Autor: Alejandro Daniel Di Stefano
 */ 
