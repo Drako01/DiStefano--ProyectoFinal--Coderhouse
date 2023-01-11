@@ -78,22 +78,35 @@
 .tiempo {
     display: flex;
     flex-direction: column;
-    padding: 2rem 0 6rem 0 ;
+    padding: 2rem 0 6rem 0;
+    align-items: center;
+    justify-content: center;
 
     h4 {
         color: var(--second);
         text-align: center;
         font-size: 1.2rem;
     }
+    .divDollar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .usImg{
+        width: 120px;
+        padding: 1rem;
+    }
 }
-.refresh{
+
+.refresh {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
 }
-#refresh{
+
+#refresh {
     background-color: var(--second);
     color: var(--light);
     width: 450px;
@@ -105,16 +118,21 @@
     border: none;
     border-radius: .25rem;
 }
-body.dark>main> .tabla .imputs-valores .imputs .boton{
+
+body.dark>main>.tabla .imputs-valores .imputs .boton {
     background-color: #7f8186;
 }
-body.dark>main> .tiempo #refresh {
+
+body.dark>main>.tiempo #refresh {
     background-color: #7f8186;
 }
-body.dark>main> .tiempo h4{
+
+body.dark>main>.tiempo h4 {
     color: var(--dark);
 }
-body.dark>main> h1,body.dark>main> h2{
+
+body.dark>main>h1,
+body.dark>main>h2 {
     color: var(--dark);
     text-shadow: none;
 }
@@ -126,6 +144,7 @@ body.dark>main> h1,body.dark>main> h2{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .producto {
     width: 400px;
     height: 600px;
@@ -135,25 +154,30 @@ body.dark>main> h1,body.dark>main> h2{
     box-shadow: .125rem .125rem .125rem rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
     background-color: #dadada;
-    h3{
+
+    h3 {
         color: var(--dark);
         text-shadow: none;
     }
-    .imagen-prod{        
+
+    .imagen-prod {
         height: 320px;
         display: flex;
         justify-content: center;
         align-items: center;
+
         img {
             width: 80%;
             margin-bottom: .8rem;
         }
     }
-    
+
 }
+
 .precioProducto {
     font-weight: 600;
 }
+
 .boton-agregar {
     background-color: var(--second);
     color: var(--light);
@@ -164,33 +188,56 @@ body.dark>main> h1,body.dark>main> h2{
     width: 90%;
     box-shadow: .125rem .125rem .25rem #a4a5a5;
 }
+
 .boton-agregar:hover {
     cursor: pointer;
     box-shadow: none;
 }
-.comprar{
+
+.comprar {
     background-color: var(--green);
 }
-.comprar:hover{
+
+.comprar:hover {
     background-color: var(--second);
 }
 
-body.dark > #contenedor-productos{
+body.dark>#contenedor-productos {
     background-color: white !important;
 }
 
-body.dark{
-    .producto{
+body.dark {
+    .producto {
         background-color: var(--light);
     }
+
     .boton-agregar {
         background-color: #989898;
     }
 }
 
-.promesass{
+.promesass {
+    h4 {
+        text-align: center;
+        padding: 1rem;
+        color: red;
+        font-size: 1.3rem;
+    }
+}
+
+.dollar {
+    color: darkgreen;
     text-align: center;
-    padding: 1rem;
-    color: red;
-    font-size: 1.3rem;
+    line-height: 1.3rem;
+    padding-left: 0;
+
+    span {
+        font-weight: 600;
+    }
+
+    .titleDollar {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-bottom: 1rem;
+    }
 }

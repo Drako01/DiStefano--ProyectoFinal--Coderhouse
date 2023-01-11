@@ -95,8 +95,8 @@ const showSelected = () => {
         interes >= 21 ? resolve('La tasa de Interés es mayor al 20%') : reject('La tasa de Interés es del 20%')  
     })
     promise
-        .then(resultado => divMensaje.innerHTML = resultado)
-        .catch(error => divMensaje.innerHTML = error)
+        .then(resultado => divMensaje.innerHTML = `<h4>${resultado}</h4>`)
+        .catch(error => divMensaje.innerHTML = `<h4>${error}</h4>`)
         .finally(resultado(interes));
     divMensaje = d.createElement('div')
     divMensaje.className = 'promesass'
