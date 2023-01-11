@@ -71,15 +71,67 @@
 
 ## Entrega Final:
 
-
+---
 ### "Proyecto Integrador que Incluya todos los Temas vistos en el Curso".
+---
+### Este Proyecto muestra un E-Commerce en el que podemos encontrar:
+---
+```ssh
+Página Inicio: 
+- Carrousel de Productos
+- Listado de Articulos en Stock con todos los detalles
+- Tabla de Articulos en Stock
+- Boton de Compra con uso de SweetAlert
+- Uso de Promesas
+- Uso de AJAX
+- Consumo de API Interna
+- Utilizacion de archivos formato JSON
+- Manejo del DOM mediante Botón de "Dark Mode"
 
+Página Tienda: 
+- Detalle de los Productos en Stock con Boton de Agregar al Carrito
+- Carrito de Compras
+- Uso de LocalStorage
+- Carrousel de Productos Utilizando Swiper
+- Boton de Compra con uso de SweetAlert
+
+Página de Contacto:
+- Formulario de contacto con Validaciones mediante Regex, tanto
+  desde el HTML como desde JavaScript.
+- Uso de SweetAlert
+- Almacenamiento en LocalStorage del Contacto
+
+Página de Ubicación:
+- Simplemente es HTML mostrando un Mapa y una Imágen.
+
+Página de Préstamos Personales:
+- Manejo del DOM
+- Uso de Funciones de orden superior
+- Consumo de API´s externas
+- Uso de Promesas
+- Funciones Date() para manejo de Horarios
+- Uso de Ciclos e iteraciones
+- Uso de Funciones Matemáticas
+
+Página Inicio de Sesión:
+- Manejo del DOM
+- Uso de LocalStorage (Guardado - Lectura - Borrado)
+- Uso de SweetAlert para un Logueo Exitoso
+
+Header y Footer:
+- Manejo del DOM
+
+```
 
 
 ---
+## Usuarios para el Login (Respetar las Mayúsculas)
+
+---
+
+
 ```ssh
-Usuarios para el Login (Respetar las Mayúsculas)
-------------------------------------------------
+
 
 1er Usuario:
 Usuario: Alejandro
