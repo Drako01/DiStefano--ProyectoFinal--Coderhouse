@@ -7,7 +7,8 @@ const
     contenedorForm = d.querySelector("#div-login"),
     textoLogout = d.querySelector("#textoLogout"),
     logout = d.querySelector("#logout"),
-    login = d.querySelector("#loginBtn");
+    login = d.querySelector("#loginBtn"),
+    urlGitHub = 'https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/';
 
 logout.className = 'btnLogout'
 
@@ -61,7 +62,7 @@ formLogin.onsubmit = (event) => {
         if (inputUser.value === u.user && inputPass.value === u.password) {
             storageDates(u.user, u.password)
             
-            const imageURL = `../img/${u.user}.png`
+            const imageURL = `${urlGitHub}/img/${u.user}.png`
             swal({
                 title: `Bienvenid@ ${u.user}`,
                 text: 'Desde esta pantalla puede Cerrar la Sesión.!',
