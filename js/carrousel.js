@@ -113,7 +113,7 @@ ajaxButtons.addEventListener('click', (e) => {
     if (e.target.classList.contains('ajax')) {
         const urlData = e.target.attributes['data-target'].value
         AJAX({
-            url: `${urlData}${e.target.attributes['format'].value}`,
+            url: `${urlGitHub}/${urlData}${e.target.attributes['format'].value}`,
             callBack: (res) => {
                 xhrResponse.innerHTML = '';
                 let ul = document.createElement('ul')
@@ -244,7 +244,7 @@ const btnPromise = document.getElementById('promises')
 btnPromise.addEventListener('click', async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const results = await fetchData({ url: `./${page}` })
+    const results = await fetchData({ url: `${urlGitHub}/${page}` })
     if (promise) {
         root.innerHTML = '';
         stockTable(results)
@@ -257,7 +257,7 @@ function callAcctions() {
     const botones = d.querySelectorAll('.btn-comprar')
     botones.forEach(b => {
         b.addEventListener('click', async (e) => {
-            const results = await fetchData({ url: `./${page}` }),
+            const results = await fetchData({ url: `${urlGitHub}/${page}` }),
                 productId = e.target.parentNode.parentNode.id.split("_")[1];
                 
             results.map((producto) => {

@@ -1,4 +1,5 @@
 //#region Consumo de API Dollar Today
+const urlGitHub = 'https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/'; 
 fetch("https://api.bluelytics.com.ar/v2/latest")
 
     .then((respuesta) => respuesta.json())
@@ -7,7 +8,7 @@ fetch("https://api.bluelytics.com.ar/v2/latest")
             divDollar = d.createElement('div'),
             ulDollar = d.createElement('ul'),
             divTiempo = d.querySelectorAll('.tiempo')[0],
-            imgDollar = './img/dolar.png'
+            imgDollar = `${urlGitHub}/img/dolar.png`
 
         divDollar.appendChild(ulDollar)
         divTiempo.prepend(divDollar)
