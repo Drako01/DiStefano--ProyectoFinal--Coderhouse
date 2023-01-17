@@ -8,7 +8,7 @@ const
     textoLogout = d.querySelector("#textoLogout"),
     logout = d.querySelector("#logout"),
     login = d.querySelector("#loginBtn"),
-    urlGitHub = 'https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse/';
+    urlGitHub = 'https://drako01.github.io/DiStefano--ProyectoFinal--Coderhouse';
 
 logout.className = 'btnLogout'
 
