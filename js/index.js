@@ -66,7 +66,9 @@ const timer = () => {
         ${  dateTime.getMonth() < 9 ? 
             '0'+ (dateTime.getMonth() + 1) : 
             dateTime.getMonth() + 1 }/${dateTime.getFullYear()} 
-        ${dateTime.getHours()}:${dateTime.getMinutes()}:${dateTime.getSeconds()}`
+        ${dateTime.getHours()}:
+        ${dateTime.getMinutes() < 9 ? '0' + (dateTime.getMinutes()) : (dateTime.getMinutes())}:
+        ${dateTime.getSeconds() < 9 ? '0' + (dateTime.getSeconds()) : (dateTime.getSeconds())}`
 }
 
 let clock = setInterval(
