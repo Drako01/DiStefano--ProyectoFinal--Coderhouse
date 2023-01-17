@@ -55,15 +55,25 @@ let nombre = 'Alejandro Daniel Di Stefano',
     ];
 const
     d = document,
-    copy = d.querySelector('#footer .copy'),
-    year = new Date(),
-    anio = year.getFullYear();     
+    copy = d.querySelector('#footer .copy')
 
-
-function setFooter() {
-    copy.innerHTML = `&copy;${anio} ${copy.innerHTML} | ${nombre} de la Comisión #${comision}`;
+const timer = () => {
+    const dateTime = new Date();
+    return `
+    ${  dateTime.getDate() < 10 ? 
+        '0'+ (dateTime.getDate() ) : 
+        dateTime.getDate() }/
+        ${  dateTime.getMonth() < 9 ? 
+            '0'+ (dateTime.getMonth() + 1) : 
+            dateTime.getMonth() + 1 }/${dateTime.getFullYear()} 
+        ${dateTime.getHours()}:${dateTime.getMinutes()}:${dateTime.getSeconds()}`
 }
-setFooter();
+
+let clock = setInterval(
+    () => copy.innerHTML = `&copy;${timer()} | Entrega Final | Curso de JavaScript en CoderHouse | ${nombre} de la Comisión #${comision}`, 
+    1000
+);
+
 //#endregion
 
 //#region ********** Manejo del DOM **********//
