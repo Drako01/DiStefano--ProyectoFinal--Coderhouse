@@ -115,9 +115,20 @@ navBar(links);
 const switchButton = d.getElementById('switch');
 
 switchButton.addEventListener('click', () => {
-    d.body.classList.toggle('dark');
+    document.body.classList.toggle('dark');
     switchButton.classList.toggle('active');
+
+    if (document.body.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+        localStorage.setItem('darkMode', 'disabled');
+    }
 });
+
+if (localStorage.getItem('darkMode') == 'enabled') {
+    document.body.classList.toggle('dark');
+    switchButton.classList.toggle('active');
+
+}
 //#endregion
 
 /*
