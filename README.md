@@ -120,7 +120,7 @@ Página Inicio de Sesión:
 
 Header y Footer:
 - Manejo del DOM
-- Funcion para dar el Horario en Tiempo Real.
+- Funcion para dar el Horario en Tiempo Real, con Función Date y Script personalizados.
 - Modo Oscuro/Claro con Local Storage.
 
 ```
