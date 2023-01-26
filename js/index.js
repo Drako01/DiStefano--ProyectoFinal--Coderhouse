@@ -112,20 +112,23 @@ const navBar = () => {
 }
 navBar(links);
 
-const switchButton = d.getElementById('switch');
+const
+    switchButton = d.getElementById('switch');
 
 switchButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
+    d.body.classList.toggle('dark');
     switchButton.classList.toggle('active');
 
-    if (document.body.classList.contains('dark')) {
+
+    if (d.body.classList.contains('dark')) {
         localStorage.setItem('darkMode', 'enabled');
+    } else {
         localStorage.setItem('darkMode', 'disabled');
     }
 });
 
 if (localStorage.getItem('darkMode') == 'enabled') {
-    document.body.classList.toggle('dark');
+    d.body.classList.toggle('dark');
     switchButton.classList.toggle('active');
 
 }
