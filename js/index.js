@@ -2,29 +2,29 @@
 let nombre = 'Alejandro Daniel Di Stefano',
     comision = 44555,
     links = [
-            {
-                page: 'index',
-                link: 'Inicio'
-            },
-            {
-                page: 'products',
-                link: 'Tienda'
-            },
-            {
-                page: 'contacts',
-                link: 'Contacto'
-            },
-            {
-                page: 'maps',
-                link: 'Ubicación'
-            },
-            {
-                page: 'finantiations',
-                link: 'Préstamos Personales'
-            }
-            
+        {
+            page: 'index',
+            link: 'Inicio'
+        },
+        {
+            page: 'products',
+            link: 'Tienda'
+        },
+        {
+            page: 'contacts',
+            link: 'Contacto'
+        },
+        {
+            page: 'maps',
+            link: 'Ubicación'
+        },
+        {
+            page: 'finantiations',
+            link: 'Préstamos Personales'
+        }
 
-        ],    
+
+    ],
     formulario = [
         {
             id: 'monto',
@@ -60,19 +60,19 @@ const
 const timer = () => {
     const dateTime = new Date();
     return `
-    ${  dateTime.getDate() < 10 ? 
-        '0'+ (dateTime.getDate() ) : 
-        dateTime.getDate() }/
-        ${  dateTime.getMonth() < 9 ? 
-            '0'+ (dateTime.getMonth() + 1) : 
-            dateTime.getMonth() + 1 }/${dateTime.getFullYear()} 
+    ${dateTime.getDate() < 10 ?
+            '0' + (dateTime.getDate()) :
+            dateTime.getDate()}/
+        ${dateTime.getMonth() < 9 ?
+            '0' + (dateTime.getMonth() + 1) :
+            dateTime.getMonth() + 1}/${dateTime.getFullYear()} 
         ${dateTime.getHours()}:
         ${dateTime.getMinutes() < 9 ? '0' + (dateTime.getMinutes()) : (dateTime.getMinutes())}:
         ${dateTime.getSeconds() < 9 ? '0' + (dateTime.getSeconds()) : (dateTime.getSeconds())}`
 }
 
 let clock = setInterval(
-    () => copy.innerHTML = `&copy;${timer()} | Entrega Final | Curso de JavaScript en CoderHouse | ${nombre} de la Comisión #${comision}`, 
+    () => copy.innerHTML = `&copy;${timer()} | Entrega Final | Curso de JavaScript en CoderHouse | ${nombre} de la Comisión #${comision}`,
     1000
 );
 
@@ -86,38 +86,49 @@ const navBar = () => {
         ul = d.createElement('ul'),
         btnLog = d.createElement('button'),
         btnLogOut = d.createElement('button'),
-        darkMode = d.createElement('button');        
+        darkMode = d.createElement('button');
 
     ul.className = 'menu';
     btnLog.className = 'btnLog';
-    darkMode.className = 'darkModeSwitch';    
+    darkMode.className = 'darkModeSwitch';
     btnLog.id = 'loginBtn';
     btnLogOut.id = 'logout';
-    darkMode.id = 'switch';       
-    
-    btnLog.innerHTML  = `<a href="login.html">
+    darkMode.id = 'switch';
+
+    btnLog.innerHTML = `<a href="login.html">
                         Inicio de Sesión
                         </a> `
-    btnLogOut.innerHTML = `<a href="">Cerrar sesión</a>`   
+    btnLogOut.innerHTML = `<a href="">Cerrar sesión</a>`
     darkMode.innerHTML = `  <span></span>   
                             <span></span>`
     links.forEach((name) => {
         ul.innerHTML += `<li class="link-item"><a href="./${name.page}.html">${name.link}</a></li>`;
     })
-    nav.appendChild(ul)        
+    nav.appendChild(ul)
     ul.appendChild(btnLog)
     ul.appendChild(btnLogOut)
     ul.appendChild(darkMode)
-    header.appendChild(nav)    
+    header.appendChild(nav)
 }
 navBar(links);
 
 const switchButton = d.getElementById('switch');
 
 switchButton.addEventListener('click', () => {
-    d.body.classList.toggle('dark');
+    document.body.classList.toggle('dark');
     switchButton.classList.toggle('active');
+
+    if (document.body.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+        localStorage.setItem('darkMode', 'disabled');
+    }
 });
+
+if (localStorage.getItem('darkMode') == 'enabled') {
+    document.body.classList.toggle('dark');
+    switchButton.classList.toggle('active');
+
+}
 //#endregion
 
 /*
