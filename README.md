@@ -148,9 +148,10 @@ Autor: Alejandro Daniel Di Stefano
 </h2>
 <p align="center"> 
 <img src="./img/logos_coderhouse.png" alt="CoderHouse"  height="100"/>
+
 </p>
-
-
+<p align="center"> 
+<img src="./img/certificado.png" alt="CoderHouse"  height="480"/></p>
 ---
 
 
